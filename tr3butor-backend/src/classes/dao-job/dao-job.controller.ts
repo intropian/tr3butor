@@ -1,0 +1,55 @@
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { DaoJobService } from './dao-job.service';
+import { CreateDaoJobDto } from './dto/create-dao-job.dto';
+import { UpdateDaoJobDto } from './dto/update-dao-job.dto';
+import { DaoJob } from './entities/dao-job.entity';
+import {
+  ApiOperation,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiTags
+} from '@nestjs/swagger';
+
+@ApiTags('dao')
+@Controller('dao-job')
+export class DaoJobController {
+  constructor(private readonly daoJobService: DaoJobService) {}
+
+  @Post()
+  @ApiOperation({ summary: 'Create DaoJob' })
+  @ApiCreatedResponse({
+    description: 'The record has been successfully created.',
+    type: DaoJob,
+  })
+  create(@Body() createDaoJobDto: CreateDaoJobDto) {
+    return this.daoJobService.create(createDaoJobDto);
+  }
+
+  @Get()
+  @ApiOkResponse({
+    description: 'List of DaoJobs',
+    type: [DaoJob],
+  })
+  findAll() {
+    return this.daoJobService.findAll();
+  }
+
+  @Get(':id')
+  @ApiOkResponse({
+    description: 'The found DaoJob',
+    type: DaoJob,
+  })
+  findOne(@Param('id') id: string) {
+    return this.daoJobService.findOne(+id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateDaoJobDto: UpdateDaoJobDto) {
+    return this.daoJobService.update(+id, updateDaoJobDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.daoJobService.remove(+id);
+  }
+}
