@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 
-import { ProfileModule } from './classes/profile/profile.module';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './classes/user/user.module';
@@ -20,7 +19,7 @@ import { DaoHackathonModule } from './classes/dao-hackathon/dao-hackathon.module
 
 
 @Module({
-  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGODB_URL), ProfileModule, UserModule, DaoModule, DaoQuestModule, DaoEventModule, BlogArticleModule, DaoTemplateModule, TalentModule, DaoJobModule, DaoBountyModule, DaoGrantModule, DaoHackathonModule],
+  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGODB_URL), UserModule, DaoModule, DaoQuestModule, DaoEventModule, BlogArticleModule, DaoTemplateModule, TalentModule, DaoJobModule, DaoBountyModule, DaoGrantModule, DaoHackathonModule],
   controllers: [AppController],
   providers: [AppService],
 })
