@@ -45,6 +45,7 @@ const LoginButton = () => {
                     onClick={() => handleConnectWallet()}
                     alignRight
                     primary
+                    simplify
                     icon={<Fox />}
                 />
             )
