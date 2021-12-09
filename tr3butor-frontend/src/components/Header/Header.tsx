@@ -8,27 +8,24 @@ import { useRecoilState } from 'recoil'
 import { AccountModalState } from '../../recoil/atoms/ModalAtom'
 import { useEthers } from '@usedapp/core'
 import Identicon from '../../libs/metamask/Identicon'
-import { headerColorState } from '../../recoil/atoms/HeaderAtom'
 
 interface HeaderProps {}
 
 export const Header = ({ ...props }: HeaderProps) => {
-  const [color] = useRecoilState(headerColorState)
   return (
-    <ScHeader style={{ background: color.toString() }}>
-      <div className="top-flex">
-        <Logo animated={true} />
-        <Menu />
-        <LoginButton />
-      </div>
-    </ScHeader>
+      <ScHeader>
+        <div className="top-flex">
+          <Logo animated={true} />
+          <Menu />
+          <LoginButton />
+        </div>
+      </ScHeader>
   )
 }
 
 const LoginButton = () => {
   const { activateBrowserWallet, account } = useEthers()
   const [, setModalData] = useRecoilState(AccountModalState)
-  const [color] = useRecoilState(headerColorState)
   const handleConnectWallet = () => {
     activateBrowserWallet()
   }
@@ -40,28 +37,27 @@ const LoginButton = () => {
     })
 
   return (
-    <div className="login-button">
-      {!account
-        ? (
-        <Button
-          label={'connect wallet'}
-          onClick={() => handleConnectWallet()}
-          alignRight
-          primary
-          simplify={color !== 'none'}
-          icon={<Fox />}
-        />
-          )
-        : (
-        <Button
-          label={'my account'}
-          onClick={getUserData}
-          alignRight
-          primary
-          simplify
-          icon={<Identicon />}
-        />
-          )}
-    </div>
+      <div className="login-button">
+        {!account
+          ? (
+                <Button
+                    label={'connect wallet'}
+                    onClick={() => handleConnectWallet()}
+                    alignRight
+                    primary
+                    icon={<Fox />}
+                />
+            )
+          : (
+                <Button
+                    label={'my account'}
+                    onClick={getUserData}
+                    alignRight
+                    primary
+                    simplify
+                    icon={<Identicon />}
+                />
+            )}
+      </div>
   )
 }

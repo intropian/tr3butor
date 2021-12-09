@@ -7,6 +7,7 @@ export const ScHeader = styled.div`
   margin-left: calc(-100vw / 2 + 920px / 2);
   margin-right: calc(-100vw / 2 + 920px / 2);
   position: relative;
+  z-index: 1;
 
   @media (${device.tablet}) {
     padding-left: 20px;

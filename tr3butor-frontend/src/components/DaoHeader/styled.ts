@@ -9,15 +9,17 @@ interface Props {
 export const ScDaoHeader = styled.div<Props>`
   background: ${(props) => props.color};
   position: relative;
-  z-index: 1;
   padding-bottom: 40px;
-  margin: 0 calc(-100vw / 2 + 920px / 2) 40px;
+  margin: -150px calc(-100vw / 2 + 920px / 2) 40px;
+  padding-top: 150px;
+  z-index: -1;
   @media (${device.tablet}) {
     padding-left: 20px;
     margin-left: -20px;
     margin-right: -40px;
     padding-right: 40px;
-    padding-top: 40px;
+    padding-top: 182px;
+    margin-top: -182px;
   }
 
   .container {
