@@ -1,17 +1,20 @@
 import React from 'react'
 import { ScDaoCardStack } from './styled'
 import { DaoCard } from '../DaoCard/DaoCard'
-import { colors } from '../../utilits/Colors'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { Dao } from '../../types/dao'
 
 interface DaoCardStackProps {
   type?: 'vertical' | 'horizontal';
+  data?: Dao[];
 }
 
 export const DaoCardStack: React.FC<DaoCardStackProps> = ({
   type = 'vertical',
+  data,
   ...props
 }) => {
+  if (!data) return <></>
   return (
     <ScDaoCardStack className={type}>
       <ScrollContainer
@@ -21,56 +24,17 @@ export const DaoCardStack: React.FC<DaoCardStackProps> = ({
           type === 'horizontal' ? 'scroll-container' : ''
         ].join(' ')}
       >
-        <DaoCard
-          title={'TheGraph'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/theGraph.png'}
-          backgroundColor={colors.orange}
-          scenario={'first'}
-        />
-        <DaoCard
-          title={'Yearn'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/yearn.png'}
-          backgroundColor={colors.green}
-          scenario={'second'}
-        />
-        <DaoCard
-          title={'OpenSea'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/openSea.png'}
-          backgroundColor={colors.mint}
-          scenario={'third'}
-        />
-
-        <DaoCard
-          title={'Uniswap'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/uniswap.png'}
-          backgroundColor={colors.mint}
-          scenario={'first'}
-        />
-        <DaoCard
-          title={'Compound'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/compound.png'}
-          backgroundColor={colors.orange}
-          scenario={'third'}
-        />
-        <DaoCard
-          title={'Snapshot'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/snapshot.png'}
-          backgroundColor={colors.green}
-          scenario={'first'}
-        />
-        <DaoCard
-          title={'Orakuru'}
-          text={'An open source portfolio tracker and analytics tool.'}
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor={colors.green}
-          scenario={'second'}
-        />
+        {data.map(({ name, description, icon, color, id }, key) => (
+          <DaoCard
+            link={`/dao/${id}`}
+            key={key}
+            title={name}
+            text={description}
+            imageUrl={icon}
+            backgroundColor={color}
+            scenario={'first'}
+          />
+        ))}
       </ScrollContainer>
     </ScDaoCardStack>
   )

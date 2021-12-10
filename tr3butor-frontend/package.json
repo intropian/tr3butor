@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/react-router": "^5.1.17",
     "@types/react-router-dom": "^5.3.2",
+    "@types/axios": "^0.14.0",
     "@types/react-transition-group": "^4.4.4",
     "@types/styled-components": "^5.1.16",
     "@usedapp/core": "^0.7.0",
@@ -84,7 +85,8 @@
     "eslint-plugin-storybook": "^0.5.3",
     "prettier": "^2.5.0",
     "prettier-eslint": "^13.0.0",
-    "styled-components.macro": "^1.0.0"
+    "styled-components.macro": "^1.0.0",
+    "miragejs": "^0.1.43"
   },
   "proxy": "https://tr3butor.selin.in.ua/"
 }
