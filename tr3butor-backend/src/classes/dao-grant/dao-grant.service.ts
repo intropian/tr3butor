@@ -19,7 +19,7 @@ export class DaoGrantService {
   }
 
   async findOne(id: number): Promise<DaoGrant> {
-    return this.daoGrantModel.findOne({id}).exec();
+    return this.daoGrantModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoGrantDto): Promise<DaoGrant> {
@@ -27,6 +27,6 @@ export class DaoGrantService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoGrantModel.find({ id }).remove().exec()
+    return this.daoGrantModel.find({ _id:id }).remove().exec()
   }
 }

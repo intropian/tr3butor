@@ -19,7 +19,7 @@ export class BlogArticleService {
   }
 
   async findOne(id: number): Promise<BlogArticle> {
-    return this.blogArticleModel.findOne({id}).exec();
+    return this.blogArticleModel.findOne({ _id:id }).exec();
   }
 
   async update(id: number, updateDto: UpdateBlogArticleDto): Promise<BlogArticle> {
@@ -27,6 +27,6 @@ export class BlogArticleService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.blogArticleModel.find({ id }).remove().exec()
+    return this.blogArticleModel.find({ _id:id }).remove().exec()
   }
 }

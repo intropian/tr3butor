@@ -19,7 +19,7 @@ export class DaoHackathonService {
   }
 
   async findOne(id: number): Promise<DaoHackathon> {
-    return this.daoHackathonModel.findOne({id}).exec();
+    return this.daoHackathonModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoHackathonDto): Promise<DaoHackathon> {
@@ -27,6 +27,6 @@ export class DaoHackathonService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoHackathonModel.find({ id }).remove().exec()
+    return this.daoHackathonModel.find({ _id:id }).remove().exec()
   }
 }

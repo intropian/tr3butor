@@ -23,7 +23,7 @@ export class DaoJobService {
     return this.daoJobModel.find({dao: id}).exec();
   }
   async findOne(id: number): Promise<DaoJob> {
-    return this.daoJobModel.findOne({id}).exec();
+    return this.daoJobModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
@@ -31,6 +31,6 @@ export class DaoJobService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoJobModel.find({ id }).remove().exec()
+    return this.daoJobModel.find({ _id:id }).remove().exec()
   }
 }
