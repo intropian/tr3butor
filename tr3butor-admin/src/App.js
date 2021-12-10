@@ -17,7 +17,7 @@ import { ResourceCreateFn, ResourceEditFn, ResourceListFn, ResourceShowFn } from
 
 
 function App() {
-  const dataProvider = crudProvider('http://localhost:3001');
+  const dataProvider = crudProvider('https://tr3butor.selin.in.ua/api');
   return (
     <div className="App">
       <Admin dataProvider={dataProvider}>
