@@ -16,9 +16,9 @@ export const Router = () => {
           <ScrollToTop />
           <Routes location={location}>
             <Route path="/" element={<Main />} />
-            <Route path="/dao" element={<Dao />} />
+            <Route path="/dao/:id" element={<Dao />} />
             <Route path="/quests" element={<Quests />} />
-            <Route path="/job" element={<Job />} />
+            <Route path="/job/:id" element={<Job />} />
           </Routes>
         </>
       </CSSTransition>

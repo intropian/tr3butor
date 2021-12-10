@@ -1,30 +1,19 @@
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
 import { InfoStack } from '../../components/InfoStack/InfoStack'
 import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
-import { useRecoilState, useResetRecoilState } from 'recoil'
-import { headerColorState } from '../../recoil/atoms/HeaderAtom'
 import { TabHead } from '../../components/TabHead/TabHead'
 import { useNavigate } from 'react-router'
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
 
 export const Dao = () => {
-  const [, setHeaderColorState] = useRecoilState(headerColorState)
-  const reset = useResetRecoilState(headerColorState)
-
   const navigate = useNavigate()
   const redirectTo = () => {
     navigate('/', { replace: true })
   }
 
-  useEffect(() => {
-    setHeaderColorState('#e01052')
-    return function () {
-      reset()
-    }
-  }, [])
   return (
     <>
       <DaoHeader
@@ -44,7 +33,7 @@ export const Dao = () => {
         label="dao’s catalog"
         onClick={redirectTo}
       />
-      <DaoCardStack type={'horizontal'} />
+      <DaoCardStack data={[]} type={'horizontal'} />
       <Ticket />
       <ConnectTab />
     </>

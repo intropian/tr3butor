@@ -9,6 +9,7 @@ interface DaoCardProps {
   text: string;
   imageUrl: string;
   backgroundColor?: string;
+  link: string;
   scenario?: 'first' | 'second' | 'third';
 }
 
@@ -18,6 +19,7 @@ export const DaoCard: React.FC<DaoCardProps> = ({
   imageUrl,
   backgroundColor,
   scenario,
+  link,
   ...props
 }) => {
   return (
@@ -32,7 +34,7 @@ export const DaoCard: React.FC<DaoCardProps> = ({
         <h4>{title}</h4>
         <p>{text}</p>
       </div>
-      <Link to="/dao">
+      <Link to={link}>
         <i>➞</i>
       </Link>
     </ScDaoCard>

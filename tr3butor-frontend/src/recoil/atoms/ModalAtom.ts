@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 import {
   initialModalAccountState,
   initialModalContributorsState
-} from '../types/modal'
+} from 'types/modal'
 
 export const AccountModalState = atom({
   key: 'AccountModalState',
