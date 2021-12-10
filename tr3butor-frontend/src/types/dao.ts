@@ -1,7 +1,7 @@
-export type Dao = {
+export type DaoParams = {
+  id: string;
   name: string;
   description: string;
-  id: string;
   icon: string;
   color: string;
   tags: [];
@@ -15,5 +15,30 @@ export type Dao = {
   followers: [];
 };
 
-export type DaoApiData = { data: Dao[] };
-export type SelectedDaoApiData = { data: Dao };
+export interface DaoState {
+  data: DaoParams[];
+  loading: boolean;
+  error: null | string;
+}
+
+export enum DaoActionTypes {
+  GET_DAO = 'GET_DAO',
+  GET_DAO_SUCCESS = 'GET_DAO_SUCCESS',
+  GET_DAO_ERROR = 'GET_GATE_COUNT_ERROR',
+}
+
+interface GetDaoAction {
+  type: DaoActionTypes.GET_DAO;
+}
+
+interface GetDaoSuccessAction {
+  type: DaoActionTypes.GET_DAO_SUCCESS;
+  payload: DaoParams[];
+}
+
+interface GetDaoErrorAction {
+  type: DaoActionTypes.GET_DAO_ERROR;
+  payload: string;
+}
+
+export type daoAction = GetDaoAction | GetDaoSuccessAction | GetDaoErrorAction;

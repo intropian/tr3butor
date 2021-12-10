@@ -2,11 +2,11 @@ import React from 'react'
 import { ScDaoCardStack } from './styled'
 import { DaoCard } from '../DaoCard/DaoCard'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { Dao } from '../../types/dao'
+import { DaoParams } from '../../types/dao'
 
 interface DaoCardStackProps {
   type?: 'vertical' | 'horizontal';
-  data: Dao[];
+  data: DaoParams[];
 }
 
 export const DaoCardStack: React.FC<DaoCardStackProps> = ({

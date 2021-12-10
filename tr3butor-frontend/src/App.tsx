@@ -3,20 +3,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { RecoilRoot } from 'recoil'
 import { Layout } from './Layout'
-import { ModalContainer } from './components/Modal'
 
 function App () {
   return (
-    <Suspense fallback={<></>}>
-      <RecoilRoot>
-        <BrowserRouter>
-          <Layout>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Layout>
+          <Suspense fallback={<></>}>
             <Router />
-          </Layout>
-          <ModalContainer />
-        </BrowserRouter>
-      </RecoilRoot>
-    </Suspense>
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
+    </RecoilRoot>
   )
 }
 

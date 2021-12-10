@@ -11,7 +11,7 @@ export const Router = () => {
   const location = useLocation()
   return (
     <TransitionGroup>
-      <CSSTransition timeout={250} classNames="fade" key={location.key}>
+      <CSSTransition timeout={0} classNames="fade" key={location.key}>
         <>
           <ScrollToTop />
           <Routes location={location}>

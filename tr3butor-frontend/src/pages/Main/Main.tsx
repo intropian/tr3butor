@@ -1,18 +1,23 @@
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ScMain } from './styled'
-import { useRecoilStateLoadable } from 'recoil'
-import { DaosState } from '../../recoil/atoms/DaoAtom'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
+import { useTypeSelector } from '../../hooks/useTypeSelector'
+import { useActions } from '../../hooks/useActions'
 
 export const Main = () => {
-  const [data] = useRecoilStateLoadable(DaosState)
+  const { data } = useTypeSelector((state) => state.dao)
+  const { getDao } = useActions()
+
+  useEffect(() => {
+    getDao()
+  }, [])
   return (
     <ScMain>
       <h2>dao Explorer</h2>
       <h6>Explore unlimited opportunities in unstoppable organizations</h6>
-      {data.state === 'hasValue' && <DaoCardStack data={data.contents} />}
+      {data && <DaoCardStack data={data} />}
       <Ticket />
       <ConnectTab />
     </ScMain>
