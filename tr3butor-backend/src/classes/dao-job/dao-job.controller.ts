@@ -26,6 +26,7 @@ export class DaoJobController {
   }
 
   @Get()
+  @ApiOperation({ summary: 'Get list of DaoJobs' })
   @ApiOkResponse({
     description: 'List of DaoJobs',
     type: [DaoJob],
