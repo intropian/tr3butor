@@ -4,8 +4,6 @@ import { DecorBlocks } from '../DecorBlocks/DecorBlocks'
 import { Button } from '../Button/Button'
 import { Discord, Globe } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
-import { useRecoilState } from 'recoil'
-import { ContributorsModalState } from '../../recoil/atoms/ModalAtom'
 
 interface DaoCardProps {
   title: string;
@@ -30,12 +28,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
   scenario,
   ...props
 }) => {
-  const openContributor = () =>
-    setModalData({
-      show: true,
-      data: []
-    })
-  const [, setModalData] = useRecoilState(ContributorsModalState)
+  const openContributor = () => console.log('open modal')
   return (
     <ScDaoHeader color={backgroundColor}>
       <div className="container flex">

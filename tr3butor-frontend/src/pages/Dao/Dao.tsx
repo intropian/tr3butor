@@ -1,15 +1,12 @@
-import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
-import React, { useEffect } from 'react'
-import { Ticket } from '../../components/Ticket/Ticket'
+import React from 'react'
+import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
+import { useNavigate, useParams } from 'react-router'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
 import { InfoStack } from '../../components/InfoStack/InfoStack'
-import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
 import { TabHead } from '../../components/TabHead/TabHead'
-import { useNavigate, useParams } from 'react-router'
+import { Ticket } from '../../components/Ticket/Ticket'
+import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { selectedDaoState } from '../../recoil/atoms/DaoAtom'
-import { getSelectedDao } from '../../recoil/selectors/DaoSelector'
 
 export const Dao = () => {
   const navigate = useNavigate()
@@ -19,18 +16,12 @@ export const Dao = () => {
 
   const params = useParams()
 
-  const [_selectedDaoState, setSelectedDaoState] =
-    useRecoilState(selectedDaoState)
-  const data = useRecoilValue(getSelectedDao)
-
-  useEffect(() => {
-    params.id && setSelectedDaoState(params.id)
-  })
   return (
     <>
       <DaoHeader
         backgroundColor="#e01052"
-        description="Community Owned and Operated Oracle"
+        description="Community Owned and Oper
+          ted Oracle"
         discord="http://localhost"
         imageUrl="/images/orakuru.png"
         scenario="second"
@@ -38,6 +29,7 @@ export const Dao = () => {
         title="Orakuru"
         website="http://localhost"
       />
+      )
       <JobCardStack />
       <InfoStack />
       <TabHead

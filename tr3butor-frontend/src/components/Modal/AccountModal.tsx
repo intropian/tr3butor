@@ -1,33 +1,29 @@
 import React from 'react'
 import { Modal } from 'components/Modal/Modal'
 import { ScModal } from './styled'
-import { useRecoilState, useResetRecoilState } from 'recoil'
-import { AccountModalState } from '../../recoil/atoms/ModalAtom'
 import { Button } from '../Button/Button'
 import { colors } from '../../utilits/Colors'
 import { useEthers } from '@usedapp/core'
 
-export const AccountModal: React.FC = () => {
-  const hide = useResetRecoilState(AccountModalState)
-  const [_] = useRecoilState(AccountModalState)
+interface Props {
+  onClose: () => void;
+}
 
+export const AccountModal: React.FC<Props> = ({ onClose }) => {
   const { account, deactivate } = useEthers()
   const handleDeactivateAccount = () => {
     deactivate()
-    hide()
+    onClose()
   }
 
-  if (!_.show) {
-    return <></>
-  }
   return (
-    <Modal onClose={hide}>
+    <Modal onClose={onClose}>
       <ScModal>
         <div className="modal-header flex">
           <span>my account</span>
           <Button
             label="close"
-            onClick={hide}
+            onClick={onClose}
             primary={false}
             color={colors.dark}
           />

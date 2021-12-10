@@ -1,11 +1,11 @@
 import { createServer, Model } from 'miragejs'
 import daos from './Fixtures/getDao'
-import { Dao } from '../../types/dao'
+import { DaoState } from '../../types/dao'
 
 export function makeServer () {
   return createServer({
     models: {
-      daos: Model.extend<Partial<Dao[]>>([])
+      daos: Model.extend<Partial<DaoState[]>>([])
     },
     fixtures: {
       daos
