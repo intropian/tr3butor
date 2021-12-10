@@ -11,7 +11,7 @@ export class CreateDaoJobDto {
     @ApiProperty()
     how_to_apply: string;
     @ApiProperty()
-    linl_apply: string;
+    link_apply: string;
     @ApiProperty({ type: () => [String] })
     responsibilities: [string];
     @ApiProperty()

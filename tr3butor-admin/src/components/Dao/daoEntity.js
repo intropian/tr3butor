@@ -3,9 +3,42 @@ export const daoEntity = {
     eth_address: 'string',
     description: 'string',
     //admin_id: 'string',
-    mission: 'string',
-    culture_values: 'string',
-    history: 'string',
-    core_team: '[string]',
-    benefits: '[string]'
+
+  avatar: 'string',
+
+  color: 'string',
+
+  tags: 'string',
+
+  date_founded: 'string',
+
+  contributors: 'string',
+
+  metric_mcap: 'string',
+
+  metric_tvl: 'string',
+
+  metric_volume: 'string',
+
+  link_website: 'string',
+
+  link_telegram: 'string',
+
+  link_twitter: 'string',
+
+  link_reddit:' string',
+
+  about_mission: 'string',
+
+  about_culture: 'string',
+
+  about_history: 'string',
+
+  about_core_team: '[string]',
+
+  about_whydao: 'string',
+
+  about_benefits: '[string]',
+
+  about_timezones: '[string]',
 };

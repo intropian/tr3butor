@@ -17,4 +17,8 @@ export class Talent {
     time_availability: string;
     @ApiProperty()
     eth_wallet: string;
+
+    @ApiProperty({ type: () => [String] })
+    favourite_daos: [string];
+
 }

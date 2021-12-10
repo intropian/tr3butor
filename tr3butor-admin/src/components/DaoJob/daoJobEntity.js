@@ -3,7 +3,7 @@ export const daoJobEntity = {
     description: 'string',
     salary_range: 'string',
     how_to_apply: 'string',
-    linl_apply: 'string';
+    link_apply: 'string';
     responsibilities: '[string]',
     role_mission: 'string',
     hard_skills_requirements: '[string]',

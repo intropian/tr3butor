@@ -6,4 +6,5 @@ export const talentEntity = {
     preferences: '[string]',
     time_availability: 'string',
     eth_wallet: 'string'
+    favourite_daos: '[string]'
 };
