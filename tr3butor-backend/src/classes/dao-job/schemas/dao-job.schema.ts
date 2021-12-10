@@ -15,7 +15,7 @@ export class DaoJob {
   @Prop()
   how_to_apply: string;
   @Prop()
-  linl_apply: string;
+  link_apply: string;
   @Prop()
   responsibilities: [string];
   @Prop()
