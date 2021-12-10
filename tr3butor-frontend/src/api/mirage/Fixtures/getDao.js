@@ -4,41 +4,83 @@ export default [
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0001',
     icon: '/images/theGraph.png',
-    color: '#506179'
+    color: '#506179',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   },
   {
     name: 'Yearn',
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0002',
     icon: '/images/yearn.png',
-    color: '#3F98FF'
+    color: '#3F98FF',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   },
   {
     name: 'OpenSea',
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0003',
     icon: '/images/openSea.png',
-    color: '#0C66C0'
+    color: '#0C66C0',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   },
   {
     name: 'Uniswap',
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0004',
     icon: '/images/uniswap.png',
-    color: '#DE1E7A'
+    color: '#DE1E7A',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   },
   {
     name: 'Compound',
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0005',
     icon: '/images/compound.png',
-    color: '#08B783'
+    color: '#08B783',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   },
   {
     name: 'Snapshot',
     description: 'An open source portfolio tracker and analytics tool.',
     id: '0000-0000-0000-0006',
     icon: '/images/snapshot.png',
-    color: '#FD8A02'
+    color: '#FD8A02',
+    tags: ['#oracle', '#defi', '#solana'],
+    mcap: '5.2M',
+    volume: '45k',
+    tvl: '$170b',
+    dateFounded: 'dec 20’',
+    website: 'http://discord/',
+    discord: 'http://discord/'
   }
 ]

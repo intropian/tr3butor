@@ -74,15 +74,15 @@ export const GlobalStyled = createGlobalStyle`
   }
 
   //ANIMATION CHANGE PAGE
-   .fade-enter {
-     opacity: 0;
-     z-index: 1;
-   }
- 
-   .fade-enter.fade-enter-active {
-     opacity: 1;
-     transition: opacity 500ms;
-   }
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
 
   @keyframes fadeInAnimation {
     0% {

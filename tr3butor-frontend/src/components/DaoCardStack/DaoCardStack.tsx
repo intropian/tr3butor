@@ -6,7 +6,7 @@ import { Dao } from '../../types/dao'
 
 interface DaoCardStackProps {
   type?: 'vertical' | 'horizontal';
-  data?: Dao[];
+  data: Dao[];
 }
 
 export const DaoCardStack: React.FC<DaoCardStackProps> = ({

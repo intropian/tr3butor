@@ -1,12 +1,15 @@
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
 import { InfoStack } from '../../components/InfoStack/InfoStack'
 import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
 import { TabHead } from '../../components/TabHead/TabHead'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { selectedDaoState } from '../../recoil/atoms/DaoAtom'
+import { getSelectedDao } from '../../recoil/selectors/DaoSelector'
 
 export const Dao = () => {
   const navigate = useNavigate()
@@ -14,6 +17,15 @@ export const Dao = () => {
     navigate('/', { replace: true })
   }
 
+  const params = useParams()
+
+  const [_selectedDaoState, setSelectedDaoState] =
+    useRecoilState(selectedDaoState)
+  const data = useRecoilValue(getSelectedDao)
+
+  useEffect(() => {
+    params.id && setSelectedDaoState(params.id)
+  })
   return (
     <>
       <DaoHeader
