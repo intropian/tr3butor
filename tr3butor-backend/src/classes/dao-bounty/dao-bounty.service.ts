@@ -19,7 +19,7 @@ export class DaoBountyService {
   }
 
   async findOne(id: number): Promise<DaoBounty> {
-    return this.daoBountyModel.findOne({id}).exec();
+    return this.daoBountyModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoBountyDto): Promise<DaoBounty> {
@@ -27,6 +27,6 @@ export class DaoBountyService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoBountyModel.find({ id }).remove().exec()
+    return this.daoBountyModel.find({ _id:id }).remove().exec()
   }
 }

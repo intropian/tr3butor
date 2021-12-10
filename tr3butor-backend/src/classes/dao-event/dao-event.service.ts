@@ -19,7 +19,7 @@ export class DaoEventService {
   }
 
   async findOne(id: number): Promise<DaoEvent> {
-    return this.daoEventModel.findOne({id}).exec();
+    return this.daoEventModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoEventDto): Promise<DaoEvent> {
@@ -27,6 +27,6 @@ export class DaoEventService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoEventModel.find({ id }).remove().exec()
+    return this.daoEventModel.find({ _id:id }).remove().exec()
   }
 }

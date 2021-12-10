@@ -19,7 +19,7 @@ export class TalentService {
   }
 
   async findOne(id: number): Promise<Talent> {
-    return this.talentModel.findOne({id}).exec();
+    return this.talentModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateTalentDto): Promise<Talent> {
@@ -27,6 +27,6 @@ export class TalentService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.talentModel.find({ id }).remove().exec()
+    return this.talentModel.find({ _id:id }).remove().exec()
   }
 }

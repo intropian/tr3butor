@@ -20,7 +20,7 @@ export class DaoService {
   }
 
   async findOne(id: string): Promise<Dao> {
-    return this.daoModel.findOne({id}).exec();
+    return this.daoModel.findOne({_id:id}).exec();
   }
 
   async update(id: string, updateDto: UpdateDaoDto): Promise<Dao> {
@@ -28,6 +28,6 @@ export class DaoService {
   }
 
   async remove(id: string): Promise<UpdateWriteOpResult> {
-    return this.daoModel.find({ id }).remove().exec()
+    return this.daoModel.find({ _id:id }).remove().exec()
   }
 }

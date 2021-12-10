@@ -19,7 +19,7 @@ export class DaoQuestService {
   }
 
   async findOne(id: number): Promise<DaoQuest> {
-    return this.daoQuestModel.findOne({id}).exec();
+    return this.daoQuestModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoQuestDto): Promise<DaoQuest> {
@@ -27,6 +27,6 @@ export class DaoQuestService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoQuestModel.find({ id }).remove().exec()
+    return this.daoQuestModel.find({ _id:id }).remove().exec()
   }
 }

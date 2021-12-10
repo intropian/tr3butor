@@ -43,7 +43,7 @@ export class UserService {
   }
 
   async findOne(id: number): Promise<User> {
-    return this.userModel.findOne({id}).exec();
+    return this.userModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateUserDto): Promise<User> {
@@ -51,7 +51,7 @@ export class UserService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.userModel.find({ id }).remove().exec()
+    return this.userModel.find({ _id:id }).remove().exec()
   }
   async authRequest(request: AuthRequestDto): Promise<AuthResponseDto> {
     const {public_addr} = request;

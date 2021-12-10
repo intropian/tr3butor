@@ -19,7 +19,7 @@ export class DaoTemplateService {
   }
 
   async findOne(id: number): Promise<DaoTemplate> {
-    return this.daoTemplateModel.findOne({id}).exec();
+    return this.daoTemplateModel.findOne({_id:id}).exec();
   }
 
   async update(id: number, updateDto: UpdateDaoTemplateDto): Promise<DaoTemplate> {
@@ -27,6 +27,6 @@ export class DaoTemplateService {
   }
 
   async remove(id: number): Promise<UpdateWriteOpResult> {
-    return this.daoTemplateModel.find({ id }).remove().exec()
+    return this.daoTemplateModel.find({ _id:id }).remove().exec()
   }
 }
