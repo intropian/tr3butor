@@ -19,7 +19,8 @@ export class DaoJobService {
   async findAll(filters: [string]): Promise<DaoJob[]> {
     return this.daoJobModel.find(filtersToSearchQuery(filters)).exec();
   }
-  async findDaoJobs(id: string): Promise<DaoJob[]> {
+  async findDaoJobs(id: string, lean: boolean = false): Promise<DaoJob[]> {
+    if(lean) return this.daoJobModel.find({dao: id}).lean();
     return this.daoJobModel.find({dao: id}).exec();
   }
   async findOne(id: string): Promise<DaoJob> {
