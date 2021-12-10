@@ -18,5 +18,5 @@ export class CreateTalentDto {
     @ApiProperty()
     eth_wallet: string;
     @ApiProperty({ type: () => [String] })
-    favourite_daos: [string];
+    favourite_daos_ids: [string];
 }

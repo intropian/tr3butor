@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { DaoJobService } from './dao-job.service';
 import { CreateDaoJobDto } from './dto/create-dao-job.dto';
 import { UpdateDaoJobDto } from './dto/update-dao-job.dto';
@@ -30,8 +30,8 @@ export class DaoJobController {
     description: 'List of DaoJobs',
     type: [DaoJob],
   })
-  findAll() {
-    return this.daoJobService.findAll();
+  findAll(@Query() query) {
+    return this.daoJobService.findAll(query && query.filter);
   }
 
   @Get(':id')

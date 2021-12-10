@@ -41,4 +41,6 @@ export class CreateDaoJobDto {
     @ApiProperty()
     payment: string;
 
+    @ApiProperty()
+    dao: string;
 }

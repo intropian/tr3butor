@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [MongooseModule.forFeature([{ name: DaoJob.name, schema: DaoJobSchema }])],
   controllers: [DaoJobController],
-  providers: [DaoJobService]
+  providers: [DaoJobService],
+  exports: [DaoJobService]
 })
 export class DaoJobModule {}

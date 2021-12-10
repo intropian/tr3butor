@@ -4,6 +4,8 @@ import { UpdateDaoJobDto } from './dto/update-dao-job.dto';
 import { Model, UpdateWriteOpResult } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { DaoJob, DaoJobDocument } from './schemas/dao-job.schema';
+import { filtersToSearchQuery } from 'src/common/helpers/filtersToSearchQuery';
+import {  Types as MongooseTypes } from 'mongoose';
 
 @Injectable()
 export class DaoJobService {
@@ -14,10 +16,12 @@ export class DaoJobService {
     return createdDaoJob.save();
   }
 
-  async findAll(): Promise<DaoJob[]> {
-    return this.daoJobModel.find().exec();
+  async findAll(filters: [string]): Promise<DaoJob[]> {
+    return this.daoJobModel.find(filtersToSearchQuery(filters)).exec();
   }
-
+  async findDaoJobs(id: string): Promise<DaoJob[]> {
+    return this.daoJobModel.find({dao: id}).exec();
+  }
   async findOne(id: number): Promise<DaoJob> {
     return this.daoJobModel.findOne({id}).exec();
   }

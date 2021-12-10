@@ -4,6 +4,7 @@ import { UpdateDaoDto } from './dto/update-dao.dto';
 import { Model, UpdateWriteOpResult } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Dao, DaoDocument } from './schemas/dao.schema';
+import { filtersToSearchQuery } from 'src/common/helpers/filtersToSearchQuery';
 
 @Injectable()
 export class DaoService {
@@ -14,19 +15,19 @@ export class DaoService {
     return createdDao.save();
   }
 
-  async findAll(): Promise<Dao[]> {
-    return this.daoModel.find().exec();
+  async findAll(filters: [string]): Promise<Dao[]> {
+    return this.daoModel.find(filtersToSearchQuery(filters)).exec();
   }
 
-  async findOne(id: number): Promise<Dao> {
+  async findOne(id: string): Promise<Dao> {
     return this.daoModel.findOne({id}).exec();
   }
 
-  async update(id: number, updateDto: UpdateDaoDto): Promise<Dao> {
+  async update(id: string, updateDto: UpdateDaoDto): Promise<Dao> {
     return this.daoModel.findByIdAndUpdate(id, updateDto).exec();
   }
 
-  async remove(id: number): Promise<UpdateWriteOpResult> {
+  async remove(id: string): Promise<UpdateWriteOpResult> {
     return this.daoModel.find({ id }).remove().exec()
   }
 }

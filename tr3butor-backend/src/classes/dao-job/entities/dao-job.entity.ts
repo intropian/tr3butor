@@ -44,7 +44,7 @@ export class DaoJob {
     time_length: string; // may be enum
 
     @ApiProperty()
-    dao_id: string; // name may change
+    dao: string; // name may change
 
     @ApiProperty()
     created_at: Date;

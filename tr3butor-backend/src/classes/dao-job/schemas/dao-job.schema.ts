@@ -27,9 +27,9 @@ export class DaoJob {
   @Prop()
   culture_requirements: [string];
   @Prop()
-  experience_requirements: string;
+  experience_requirements: [string];
   @Prop()
-  education_requirements: string;
+  education_requirements: [string];
   @Prop()
   work_conditions: [string];
   @Prop()
@@ -48,7 +48,7 @@ export class DaoJob {
   time_length: string; // may be enum
 
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Dao' })
-  dao: Dao;
+  dao: Dao | MongooseSchema.Types.ObjectId | string;
 
   @Prop()
   created_at: Date;

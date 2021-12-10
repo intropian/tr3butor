@@ -9,15 +9,11 @@ export class CrudAnswerInterceptor implements NestInterceptor {
       .handle()
       .pipe(
         map((data) => {
-            if(data.data) {
-                if(Array.isArray(data.data) && !data.total) {
-                    return {...data, total:data.data.length};
-                }
-                return data;
-            } else {
-                if(Array.isArray(data)) return {data, total: data.length};
-                return data;
-            }
+          const request = context.getArgByIndex(0);
+          if(request && request.query && request.query.limit && request.query.limit > 0) {
+            if(Array.isArray(data)) return {data, total: data.length};
+          }
+          return data;
         }),
       );
   }

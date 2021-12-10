@@ -56,6 +56,7 @@ export class Dao {
   about_benefits: [string];
   @Prop()
   about_timezones: [string];
+
 }
 
 export const DaoSchema = SchemaFactory.createForClass(Dao);

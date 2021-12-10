@@ -19,6 +19,6 @@ export class Talent {
     eth_wallet: string;
 
     @ApiProperty({ type: () => [String] })
-    favourite_daos: [string];
+    favourite_daos_ids: [string];
 
 }
