@@ -85,5 +85,6 @@
     "prettier": "^2.5.0",
     "prettier-eslint": "^13.0.0",
     "styled-components.macro": "^1.0.0"
-  }
+  },
+  "proxy": "https://tr3butor.selin.in.ua/"
 }

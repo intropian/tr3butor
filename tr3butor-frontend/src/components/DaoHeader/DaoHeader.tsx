@@ -39,7 +39,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
   return (
     <ScDaoHeader color={backgroundColor}>
       <div className="container flex">
-        <DecorBlocks scenario={scenario} />
+        <DecorBlocks scenario={scenario} zIndex={0} />
         <div className="info">
           <div className="top flex">
             <Suspense fallback={<Preloader height="120px" width="140px" />}>

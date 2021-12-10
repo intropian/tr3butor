@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface Props {
   color: string;
+  zIndex: number;
 }
 
 export const ScDecorBlocks = styled.div<Props>`
@@ -11,7 +12,7 @@ export const ScDecorBlocks = styled.div<Props>`
   width: 100%;
   left: 0;
   top: 0;
-  z-index: -1;
+  z-index: ${props => props.zIndex};
 
   b {
     display: block;

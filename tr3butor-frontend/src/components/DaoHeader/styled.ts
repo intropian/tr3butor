@@ -12,7 +12,6 @@ export const ScDaoHeader = styled.div<Props>`
   padding-bottom: 40px;
   margin: -150px calc(-100vw / 2 + 920px / 2) 40px;
   padding-top: 150px;
-  z-index: -1;
   @media (${device.tablet}) {
     padding-left: 20px;
     margin-left: -20px;
@@ -32,8 +31,10 @@ export const ScDaoHeader = styled.div<Props>`
     @media (${device.tablet}) {
       width: 100%;
     }
+    
 
     .info {
+      position: relative;
       img {
         margin-right: 20px;
       }
