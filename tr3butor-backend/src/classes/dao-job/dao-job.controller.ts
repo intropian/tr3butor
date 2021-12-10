@@ -41,16 +41,16 @@ export class DaoJobController {
     type: DaoJob,
   })
   findOne(@Param('id') id: string) {
-    return this.daoJobService.findOne(+id);
+    return this.daoJobService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateDaoJobDto: UpdateDaoJobDto) {
-    return this.daoJobService.update(+id, updateDaoJobDto);
+    return this.daoJobService.update(id, updateDaoJobDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.daoJobService.remove(+id);
+    return this.daoJobService.remove(id);
   }
 }

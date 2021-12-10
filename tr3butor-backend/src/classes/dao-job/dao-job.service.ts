@@ -22,15 +22,15 @@ export class DaoJobService {
   async findDaoJobs(id: string): Promise<DaoJob[]> {
     return this.daoJobModel.find({dao: id}).exec();
   }
-  async findOne(id: number): Promise<DaoJob> {
+  async findOne(id: string): Promise<DaoJob> {
     return this.daoJobModel.findOne({_id:id}).exec();
   }
 
-  async update(id: number, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
+  async update(id: string, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
     return this.daoJobModel.findByIdAndUpdate(id, updateDto).exec();
   }
 
-  async remove(id: number): Promise<UpdateWriteOpResult> {
+  async remove(id: string): Promise<UpdateWriteOpResult> {
     return this.daoJobModel.find({ _id:id }).remove().exec()
   }
 }
