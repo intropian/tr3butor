@@ -22,7 +22,10 @@ export class User {
   @Prop()
   eth_handle: string;
   @Prop()
-  public_key: string;
+  public_addr: string;
+
+  @Prop()
+  nonce: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

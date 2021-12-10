@@ -14,5 +14,5 @@ export class CreateUserDto {
     @ApiProperty()
     eth_handle: string;
     @ApiProperty()
-    public_key: string;
+    public_addr: string;
 }
