@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { User } from '../../user/schemas/user.schema';
 
 export type DaoDocument = Dao & Document;
 
@@ -13,19 +14,48 @@ export class Dao {
   description: string;
   @Prop()
   admin_id: string; // what should it be?
-  //import { Owner } from '../owners/schemas/owner.schema';
-  // Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Owner' })
+
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User' })
+  admin: User; // what should it be?
 
   @Prop()
-  mission: string;
+  avatar: string;
   @Prop()
-  culture_values: string;
+  color: string;
   @Prop()
-  history: string;
+  tags: string;
   @Prop()
-  core_team: [string];
+  date_founded: string;
   @Prop()
-  benefits: [string];
+  contributors: [string];
+  @Prop()
+  metric_mcap: string;
+  @Prop()
+  metric_tvl: string;
+  @Prop()
+  metric_volume: string;
+  @Prop()
+  link_website: string;
+  @Prop()
+  link_telegram: string;
+  @Prop()
+  link_twitter: string;
+  @Prop()
+  link_reddit: string;
+  @Prop()
+  about_mission: string;
+  @Prop()
+  about_culture: string;
+  @Prop()
+  about_history: string;
+  @Prop()
+  about_core_team: [string];
+  @Prop()
+  about_whydao: string;
+  @Prop()
+  about_benefits: [string];
+  @Prop()
+  about_timezones: [string];
 }
 
 export const DaoSchema = SchemaFactory.createForClass(Dao);
