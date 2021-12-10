@@ -14,10 +14,11 @@ import { talentEntity } from './components/Talent/talentEntity';
 import { userEntity } from './components/User/userEntity';
 
 import { ResourceCreateFn, ResourceEditFn, ResourceListFn, ResourceShowFn } from './components/generalizedResourceElements';
+import { DaoJobCreate, DaoJobEdit} from './components/DaoJob';
 
 
 function App() {
-  const dataProvider = crudProvider('https://tr3butor.selin.in.ua/api');
+  const dataProvider = crudProvider('http://localhost:3001'); // 'https://tr3butor.selin.in.ua/api';
   return (
     <div className="App">
       <Admin dataProvider={dataProvider}>
@@ -27,7 +28,7 @@ function App() {
         <Resource name="dao-event" list={ResourceListFn(daoEventEntity)} create={ResourceCreateFn(daoEventEntity)} edit={ResourceEditFn(daoEventEntity)} show={ResourceShowFn(daoEventEntity)} />
         <Resource name="dao-grant" list={ResourceListFn(daoGrantEntity)} create={ResourceCreateFn(daoGrantEntity)} edit={ResourceEditFn(daoGrantEntity)} show={ResourceShowFn(daoGrantEntity)} />
         <Resource name="dao-hackathon" list={ResourceListFn(daoHackathonEntity)} create={ResourceCreateFn(daoHackathonEntity)} edit={ResourceEditFn(daoHackathonEntity)} show={ResourceShowFn(daoHackathonEntity)} />
-        <Resource name="dao-job" list={ResourceListFn(daoJobEntity)} create={ResourceCreateFn(daoJobEntity)} edit={ResourceEditFn(daoJobEntity)} show={ResourceShowFn(daoJobEntity)} />
+        <Resource name="dao-job" list={ResourceListFn(daoJobEntity)} create={DaoJobCreate} edit={DaoJobEdit} show={ResourceShowFn(daoJobEntity)} />
         <Resource name="dao-quest" list={ResourceListFn(daoQuestEntity)} create={ResourceCreateFn(daoQuestEntity)} edit={ResourceEditFn(daoQuestEntity)} show={ResourceShowFn(daoQuestEntity)} />
         <Resource name="dao-template" list={ResourceListFn(daoTemplateEntity)} create={ResourceCreateFn(daoTemplateEntity)} edit={ResourceEditFn(daoTemplateEntity)} show={ResourceShowFn(daoTemplateEntity)} />
         <Resource name="talent" list={ResourceListFn(talentEntity)} create={ResourceCreateFn(talentEntity)} edit={ResourceEditFn(talentEntity)} show={ResourceShowFn(talentEntity)} />
