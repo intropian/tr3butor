@@ -7,7 +7,8 @@ tr3butor
  # Submission Links 
   
   https://www.app.tr3butor.com
-  if the link above doesn't work for you, please use tr3butor.selin.in.ua to access the site. 
+  
+  if the link above doesn't work for you, please use https://www.tr3butor.selin.in.ua to access the site. 
 
 
 # 02-Hackathon-DAO-tr3butor-DAO-web3-community-platform 
@@ -84,24 +85,21 @@ As tr3butor is а next-level marketplace, our audience consists mainly DAOs and 
 
 
   
-### tr3butors Person of Contact for judges to reach out to about any questions 
+# Person of Contact for judges to reach out to about any questions 
 
- <h2>Full Name</h2> - Max Up
+ Max Up
  Email - max@tr3butor.com
-   Telegram/ Twitter - @laconeat
+ Telegram/ Twitter - @laconeat
 
 
 ## Our project's social media profiles: 
 
 
-Twitter:    https://twitter.com/tr3butor
+Twitter:  https://twitter.com/tr3butor
 
-Discord    https://discord.com/invite/N7b9R36X   
+Discord:   https://discord.com/invite/N7b9R36X   
 
-Telegram: https://t.me/rtr3butor
 
-Medium:   https://medium.com/rtr3butor
+Github:   https://github.com/tr3butor
 
-Github:    https://github.com/tr3butor
-
-Email： 
+Email： max@tr3butor@gmail.com
