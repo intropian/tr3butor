@@ -40,7 +40,7 @@ As a team We want to ensure that every DAO has access to the best talent capable
 
 Our aim is to become the go to platform for DAOs looking for knowledge, talent, and the support and backing of this community. 
 
-We will aim:
+### Goals:
 
 1. Educate & entertain both DAOs and tr3butors through content & events
 2. Make users stick through advanced earning and staking strategies for both parties
