@@ -1,20 +1,22 @@
 # Team Name
-tr3butor 
 
-#the tr3butor team's Payment Address
+**tr3butor **
+
+# The tr3butor team's Payment Address
  0x969AEb1A3CFcD44c8F509E87B845AEE66Ad15a83
  
- # Submission Links 
+# Submission Links 
   
-  https://www.app.tr3butor.com
-  
-  if the link above doesn't work for you, please use https://www.tr3butor.selin.in.ua to access the site. 
+ https://www.app.tr3butor.com * if the link above doesn't work for you, please use https://www.tr3butor.selin.in.ua to access the site. 
+ 
+# Recorded video demo
+
+https://www.loom.com/share/e417294644d24f689ab077546633fe64
 
 
-# 02-Hackathon-DAO-tr3butor-DAO-web3-community-platform 
-========================================================
 
-## Submission for the DAO Global Hackathon 2021
+
+# Submission for the DAO Global Hackathon 2021
 
 
 #tr3butor - the go to for everything top DAOs need to make sh*t happen. Meet talent, get things done and build the stage out for the next generation of the web. 
@@ -25,17 +27,16 @@ tr3butor
 
 tr3butor is the launchpad and go to platform for pioneering web3 talent to connect with the world's most exciting DAOs to shape the next stage in the evolution of the of the world wide web.
 
-**#The Mission **
+# The Mission
 
 As a team We want to ensure that every DAO has access to the best talent capable of taking their work to the next level. tr3butor is the stomping ground where the two come together to do epic work for the next era of the web. 
 
-Our aim is to become the go to platform for DAOs looking for knowledge, talent, and the support and backing of this community. We will aim 
+Our aim is to become the go to platform for DAOs looking for knowledge, talent, and the support and backing of this community. 
+
+We will aim 
 
 2. Educate & entertain both DAOs and tr3butors through content & events
 3. Make users stick through advanced earning and staking strategies for both parties
-
-
-
 
 # Problem
 
@@ -47,11 +48,7 @@ The most frequently mentioned problem for DAOs is recruiting. There is a small s
     - As tr3butor is а next-level marketplace, our audience consists of top DAOs that join us to find contributors that can help them meet their project's ambitious goals.
     - Given the diversity of talent in tr3butor's community, any DAO will find it valuable to participate in tr3butor's growing and active community. Whether you're here because of unmet hiring needs, governance processes or simply seeking the best practices, for hiring, managing payments and grant distributions, we believe you'll find what you're looking for.
     
-  ### Recorded video demo
-
-https://www.loom.com/share/e417294644d24f689ab077546633fe64
-
-
+ 
 
 
     - When you ask DAO leads and operators what's their the biggest pain point, 9/10 will answer – talent. Hiring, onboarding, retaining. The talent suffer, too. We are navigating in the darkness looking for opportunities, professional growth, education, community. We need each other, and we have to build a place where we can meet, learn, educate, build, contribute and just have fun, don't we?
