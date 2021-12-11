@@ -23,5 +23,6 @@ Default.args = {
   imageUrl: '/images/theGraph.png',
   backgroundColor: colors.orange,
   scenario: 'first',
-  type: 'Hackathon'
+  type: 'Hackathon',
+  link: ''
 }

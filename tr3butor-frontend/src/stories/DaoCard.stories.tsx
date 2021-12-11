@@ -21,5 +21,6 @@ Default.args = {
   text: 'An open source portfolio tracker and analytics tool.',
   imageUrl: '/images/theGraph.png',
   backgroundColor: colors.orange,
-  scenario: 'first'
+  scenario: 'first',
+  link: '/'
 }

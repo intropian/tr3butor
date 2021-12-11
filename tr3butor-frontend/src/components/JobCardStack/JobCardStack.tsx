@@ -15,7 +15,7 @@ export const JobCardStack: React.FC<DaoCardStackProps> = ({
   return (
     <ScJobCardStack>
       <div className="container">
-        {data.map(({ title, description, dao, id }, key) => (
+        {data?.map(({ title, description, dao, id }, key) => (
           <JobCard
             key={key}
             daoName={dao.name}
