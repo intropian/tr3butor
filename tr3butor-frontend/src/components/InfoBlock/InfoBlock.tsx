@@ -2,8 +2,8 @@ import React from 'react'
 import { ScInfoBlock } from './styled'
 
 interface InfoBlockProps {
-  title: string;
-  content: string[];
+  title?: string;
+  content?: string|string[];
 }
 
 export const InfoBlock: React.FC<InfoBlockProps> = ({
@@ -11,12 +11,18 @@ export const InfoBlock: React.FC<InfoBlockProps> = ({
   content,
   ...props
 }) => {
-  return (
-    <ScInfoBlock>
-      <h4>{title}</h4>
-      {content.map((data, key) => (
-        <p key={key}>{data}</p>
-      ))}
-    </ScInfoBlock>
-  )
+  if (title && content) {
+    return (
+      <ScInfoBlock>
+        <h4>{title}</h4>
+        {Array.isArray(content)
+          ? <ul>{content.map((data, key) => (
+            <li key={key}>{data}</li>
+          ))}</ul>
+          : <p>{content}</p>}
+      </ScInfoBlock>
+    )
+  } else {
+    return null
+  }
 }

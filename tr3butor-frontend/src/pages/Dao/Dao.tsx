@@ -11,7 +11,9 @@ import { changeTo, randomItemFromArray, shuffle } from '../../utilits/common'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { useActions } from '../../hooks/useActions'
 import { DaoParams } from '../../types/dao'
+import { transformDataToBlockInfo } from '../../utilits/transformDataToBlockInfo'
 
+const daoInfoFields = ['about_mission', 'about_culture', 'about_history', 'about_core_team', 'about_whydao', 'about_benefits', 'timezones']
 export const Dao = () => {
   const navigate = useNavigate()
   const params = useParams()
@@ -28,6 +30,8 @@ export const Dao = () => {
     params.id && getCertainDao(params.id) && getDaoJobs(params.id)
     getDao()
   }, [])
+
+  const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData) : null
   return (
     <>
       {certainDaoData && !certainDaoLoading && (
@@ -47,7 +51,7 @@ export const Dao = () => {
         />
       )}
       {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}
-      <InfoStack />
+      <InfoStack blocks={blocksInfo}/>
       <TabHead
         title="related dao’s"
         label="dao’s catalog"

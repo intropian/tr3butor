@@ -42,7 +42,7 @@ export const Job = () => {
           daoUrl={'/dao/' + jobData.dao.id}
         />
       )}
-      <InfoStack />
+      <InfoStack blocks={null} />
       <TabHead
         title="related quests"
         label="all quests"
