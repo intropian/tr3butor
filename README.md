@@ -76,15 +76,12 @@ As tr3butor is а next-level marketplace, our audience consists mainly DAOs and 
         
       Students and recent grads looking for work experience who will become the first generation of web3 professionals that never worked in web2. 
       
-#Our Solution
+#Our Solution - The community, the platform, the DAO.
 
+#Our very first (hackathon) features DAOs & their quests explorer page where users will find contributor application forms for DAOs. A simple yet effective authorisation process is in place to verify contributors and our Discord channe offers addditoin support in the form of onboarding, education and invaluable resources to connect with peeers and grow your skills. 
 
-#The community, the platform, the DAO.
-
-#Our very first (hackathon) features DAOs & their quests explorer page where users will find contributor application forms for DAOs. A simple yet effective authorisation process is in place to verify contributors and our Discord channe offers addditoin support in the form of onboarding, education and invaluable resources to connect with peeers and grow your skillet
-    - In a few weeks we'll launch advanced contributors profiles aka on-chain CVs, custom feed of quests based on their followings and skills, and on-site blog platform to build the all-inclusive library of professional content from DAOs and contributors
-    - Next stage of the project development will be adding in-app messaging and project-management tools & integrating advanced payment system for DAOs to have a single-interface solution for recurrent payments, bounties and tips.
-    - On top of that we can build (or integrate) many really exciting things, but for now we don't want to guess which of them our DAO and community will prioritise in roadmap and what else someone can bring on the table.
+ In a few weeks we'll launch advanced contributor profiles, that will serve as on-chain CVs, custom feed of quests based on their followings and skills, and on-site blog platform to build the all-inclusive library of professional content from DAOs and contributors
+  Next stage of the project development will be adding in-app messaging and project-management tools & integrating advanced payment system for DAOs to have a single-interface solution for recurrent payments, bounties and tips. On top of that we can build (or integrate) many really exciting things, but for now we don't want to guess which of them our DAO and community will prioritise in roadmap and what else someone can bring on the table.
         
    #Our Roadmap 
         - 223 Curated School – get your web3 knowledge and skills tested, discover possible development paths and learn-to-earn through courses, bootcamps and real tasks from DAOs
@@ -103,8 +100,8 @@ As tr3butor is а next-level marketplace, our audience consists mainly DAOs and 
 - Wallet(s) to send payme
 
 ### the tr3butor team's Payment Address
-  - 0xCc2a3A2F526eAD0De984d9A6392203b102EFCE82
-  - 
+  - 0x969AEb1A3CFcD44c8F509E87B845AEE66Ad15a83
+  
     ### tr3butors Person of Contact for judges to reach out to about any questions 
 
  <h2>Full Name</h2> - Max Up
