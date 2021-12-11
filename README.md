@@ -86,9 +86,10 @@ The most frequently mentioned problem for DAOs is recruiting. There is a small s
 
   
 ### Person of Contact for judges to reach out to about any questions 
-
- Max Up
+ Name - Max Uperiaka
+ 
  Email - max@tr3butor.com
+ 
  Telegram/ Twitter - @laconeat
 
 
