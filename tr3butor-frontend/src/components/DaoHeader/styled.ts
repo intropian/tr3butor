@@ -113,6 +113,7 @@ export const ScDaoHeader = styled.div<Props>`
           p {
             font-weight: 200;
             font-size: 24px;
+            text-align: center;
           }
 
           img {

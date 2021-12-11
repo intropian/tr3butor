@@ -95,11 +95,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             <div>
               <span>contributors</span>
               <p>
-                <img src="/images/demo/ava.png" />
-                <img src="/images/demo/ava_1.png" />
-                <img src="/images/demo/ava_2.png" />
-                <img src="/images/demo/ava_3.png" />
-                <i onClick={() => setShowModal(true)}>125</i>
+                <i>0</i>
               </p>
             </div>
             <div>
@@ -115,11 +111,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             <div>
               <span>followers</span>
               <p>
-                <img src="/images/demo/ava_4.png" />
-                <img src="/images/demo/ava_5.png" />
-                <img src="/images/demo/ava_2.png" />
-                <img src="/images/demo/ava_1.png" />
-                <i onClick={() => setShowModal(true)}>2140</i>
+                <i>0</i>
               </p>
             </div>
             <div>
