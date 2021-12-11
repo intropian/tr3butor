@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
 import { useNavigate, useParams } from 'react-router'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
@@ -7,38 +7,53 @@ import { TabHead } from '../../components/TabHead/TabHead'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
+import { changeTo, randomItemFromArray, shuffle } from '../../utilits/common'
+import { useTypeSelector } from '../../hooks/useTypeSelector'
+import { useActions } from '../../hooks/useActions'
+import { DaoParams } from '../../types/dao'
 
 export const Dao = () => {
   const navigate = useNavigate()
-  const redirectTo = () => {
-    navigate('/', { replace: true })
-  }
-
   const params = useParams()
+  const { data } = useTypeSelector((state) => state.dao)
 
+  const { certainDaoData, certainDaoLoading } = useTypeSelector(
+    (state) => state.certainDao
+  )
+  const { daoJobsData, daoJobsLoading } = useTypeSelector(
+    (state) => state.daoJobs
+  )
+  const { getCertainDao, getDaoJobs, getDao } = useActions()
+  useEffect(() => {
+    params.id && getCertainDao(params.id) && getDaoJobs(params.id)
+    getDao()
+  }, [])
   return (
     <>
-      <DaoHeader
-        backgroundColor="#e01052"
-        description="Community Owned and Oper
-          ted Oracle"
-        discord="http://localhost"
-        imageUrl="/images/orakuru.png"
-        scenario="second"
-        tags={['#oracle', '#defi', '#solana']}
-        title="Orakuru"
-        website="http://localhost"
-      />
-      )
-      <JobCardStack />
+      {certainDaoData && !certainDaoLoading && (
+        <DaoHeader
+          backgroundColor={certainDaoData.color}
+          description={certainDaoData.description}
+          discord={certainDaoData.link_discord}
+          imageUrl={certainDaoData.avatar}
+          scenario="second"
+          tags={certainDaoData.tags?.split(',')}
+          title={certainDaoData.name}
+          website={certainDaoData.link_website}
+        />
+      )}
+      {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}
       <InfoStack />
       <TabHead
         title="related dao’s"
         label="dao’s catalog"
-        onClick={redirectTo}
+        onClick={() => changeTo(navigate, '/')}
       />
-      <DaoCardStack data={[]} type={'horizontal'} />
-      <Ticket />
+      {
+        // TODO: make real request
+      }
+      <DaoCardStack data={shuffle(data) as DaoParams[]} type={'horizontal'} />
+      <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
     </>
   )

@@ -22,3 +22,24 @@ export const getDao = () => {
     }
   }
 }
+
+export const getCertainDao = (id: string) => {
+  return async (dispatch: Dispatch<daoAction>): Promise<void> => {
+    try {
+      dispatch({
+        type: DaoActionTypes.GET_CERTAIN_DAO
+      })
+
+      const response = await axios.get(`/api/dao/${id}`)
+      dispatch({
+        type: DaoActionTypes.GET_CERTAIN_DAO_SUCCESS,
+        payload: response.data
+      })
+    } catch (e) {
+      dispatch({
+        type: DaoActionTypes.GET_CERTAIN_DAO_ERROR,
+        payload: 'Error while getting data about DAO'
+      })
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { Main } from './pages/Main/Main'
 import { Dao } from './pages/Dao/Dao'
 import ScrollToTop from './utilits/ScrollToTop'
-import { Quests } from './pages/Quests/Quests'
+import { Jobs } from './pages/Jobs/Jobs'
 import { Job } from './pages/Job/Job'
 
 export const Router = () => {
@@ -17,7 +17,7 @@ export const Router = () => {
           <Routes location={location}>
             <Route path="/" element={<Main />} />
             <Route path="/dao/:id" element={<Dao />} />
-            <Route path="/quests" element={<Quests />} />
+            <Route path="/quests" element={<Jobs />} />
             <Route path="/job/:id" element={<Job />} />
           </Routes>
         </>

@@ -4,15 +4,19 @@ import { ScModal } from './styled'
 import { Button } from '../Button/Button'
 import { colors } from '../../utilits/Colors'
 
-export const ContributorsModal: React.FC = () => {
+interface Props {
+  onClose: () => void;
+}
+
+export const ContributorsModal: React.FC<Props> = ({ onClose }) => {
   return (
-    <Modal onClose={() => console.log('close')}>
+    <Modal onClose={onClose}>
       <ScModal>
         <div className="modal-header flex">
           <span>Orakuru contributors</span>
           <Button
             label="close"
-            onClick={() => console.log('close')}
+            onClick={onClose}
             primary={false}
             color={colors.dark}
           />

@@ -31,12 +31,28 @@ export const ScDaoHeader = styled.div<Props>`
     @media (${device.tablet}) {
       width: 100%;
     }
-    
 
     .info {
+      width: 50%;
+
+      .top {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        @media (${device.mobileXXL}) {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (${device.mobileXXL}) {
+        width: 100%;
+      }
       position: relative;
+
       img {
         margin-right: 20px;
+        height: 120px;
+        width: 120px;
+        border-radius: 60px;
       }
 
       h3 {

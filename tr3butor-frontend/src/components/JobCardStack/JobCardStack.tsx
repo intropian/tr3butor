@@ -1,75 +1,33 @@
 import React from 'react'
 import { ScJobCardStack } from './styled'
 import { JobCard } from '../JobCard/JobCard'
+import { JobParams } from '../../types/job'
+import { randomItemFromArray } from '../../utilits/common'
 
-interface DaoCardStackProps {}
+interface DaoCardStackProps {
+  data: JobParams[];
+}
 
-export const JobCardStack: React.FC<DaoCardStackProps> = ({ ...props }) => {
+export const JobCardStack: React.FC<DaoCardStackProps> = ({
+  data,
+  ...props
+}) => {
   return (
     <ScJobCardStack>
       <div className="container">
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Hackathon'}
-          title={'Mint a minimum of 100 mUSD by converting stablecoins'}
-          text={
-            'mUSD is a basket of stablecoins that can be minted by swapping any ...'
-          }
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#29C295"
-          scenario={'first'}
-        />
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Job'}
-          title={'Turn your mUSD into imUSD'}
-          text={
-            'Convert your mUSD into the interest-accruing stablecoin version of ...'
-          }
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#06CA54"
-          scenario={'second'}
-        />
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Grant'}
-          title={'Swap on Uniswap'}
-          text={'Swap on Uniswap'}
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#22ACCA"
-          scenario={'third'}
-        />
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Job'}
-          title={'Swap on Uniswap'}
-          text={'Swap on Uniswap'}
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#06CA54;"
-          scenario={'third'}
-        />
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Grant'}
-          title={'Turn your mUSD into imUSD'}
-          text={
-            'Convert your mUSD into the interest-accruing stablecoin version of ...'
-          }
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#22ACCA;"
-          scenario={'first'}
-        />
-        <JobCard
-          daoName={'Orakuru'}
-          type={'Hackathon'}
-          title={'Mint a minimum of 100 mUSD by converting stablecoins'}
-          text={
-            'mUSD is a basket of stablecoins that can be minted by swapping any ...'
-          }
-          imageUrl={'/images/orakuru.png'}
-          backgroundColor="#29C295"
-          scenario={'second'}
-        />
+        {data.map(({ title, description, dao, id }, key) => (
+          <JobCard
+            key={key}
+            daoName={dao.name}
+            type={'Job'}
+            title={title}
+            text={description}
+            imageUrl={dao.avatar}
+            backgroundColor="#06CA54"
+            scenario={randomItemFromArray(['first', 'second', 'third'])}
+            link={`/job/${id}`}
+          />
+        ))}
       </div>
     </ScJobCardStack>
   )

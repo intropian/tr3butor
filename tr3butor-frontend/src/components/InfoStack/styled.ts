@@ -2,9 +2,14 @@ import styled from 'styled-components'
 import { device } from '../../utilits/MediaQuery'
 
 export const ScInfoStack = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 120px;
+  gap: 6%;
+
+  > div {
+    width: 47%;
+    @media (${device.mobileXXL}) {
+      width: 100%;
+    }
+  }
 
   @media (${device.mobileXXL}) {
     display: block;

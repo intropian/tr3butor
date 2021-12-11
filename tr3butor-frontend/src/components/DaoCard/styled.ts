@@ -36,9 +36,10 @@ export const ScDaoCard = styled.div<Props>`
   }
 
   img {
-    @media (${device.mobileXXL}) {
-      width: 40%;
-    }
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 60px;
   }
 
   .card-content {

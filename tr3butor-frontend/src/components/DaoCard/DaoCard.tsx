@@ -3,6 +3,7 @@ import { ScDaoCard } from './styled'
 import { DecorBlocks } from '../DecorBlocks/DecorBlocks'
 import { Link } from 'react-router-dom'
 import { Preloader } from '../Preloader/Preloader'
+import { cutSentences } from '../../utilits/common'
 
 interface DaoCardProps {
   title: string;
@@ -32,7 +33,7 @@ export const DaoCard: React.FC<DaoCardProps> = ({
       </div>
       <div className="card-content">
         <h4>{title}</h4>
-        <p>{text}</p>
+        <p>{text && cutSentences(text, 100)}</p>
       </div>
       <Link to={link}>
         <i>➞</i>

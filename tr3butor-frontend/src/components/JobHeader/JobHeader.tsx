@@ -4,6 +4,8 @@ import { Button } from '../Button/Button'
 import { Arrow, Discord, Globe, Grant, Hackathon, Job } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
 import { ScJobHeader } from './styled'
+import { changeTo, redirectTo } from '../../utilits/common'
+import { useNavigate } from 'react-router'
 
 interface JobHeaderProps {
   title: string;
@@ -17,6 +19,7 @@ interface JobHeaderProps {
   discord?: string;
   scenario?: 'first' | 'second' | 'third';
   type: 'Hackathon' | 'Job' | 'Grant';
+  daoUrl: string;
 }
 
 // TODO: ASAP BRICK ON COMPONENTS AND DIVIDE IT IN STORIES!
@@ -32,6 +35,7 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
   backgroundColor,
   scenario,
   type,
+  daoUrl,
   ...props
 }) => {
   const getIcon = (icon: string) => {
@@ -46,6 +50,8 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
         return false
     }
   }
+  const navigate = useNavigate()
+
   return (
     <ScJobHeader color={backgroundColor}>
       <div className="container">
@@ -58,10 +64,7 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
             </div>
           </div>
           <div className="description flex">
-            <div className="text">
-              Lead Growth & Community team to ensure Orakuru's leading market
-              position, B2B clients acquisition and growth of token holders
-            </div>
+            <div className="text">{jobText}</div>
             <div className="control">
               <Button
                 label="apply to job"
@@ -99,21 +102,28 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
                 simplify
                 borderColor="white"
                 primary={false}
+                onClick={() => changeTo(navigate, daoUrl)}
               />
-              <Button
-                label="discord"
-                simplify
-                borderColor="white"
-                onlyIcon
-                icon={<Globe />}
-              />
-              <Button
-                label="discord"
-                simplify
-                borderColor="white"
-                onlyIcon
-                icon={<Discord />}
-              />
+              {website && (
+                <Button
+                  label="globe"
+                  simplify
+                  borderColor="white"
+                  onlyIcon
+                  onClick={() => redirectTo(website)}
+                  icon={<Globe />}
+                />
+              )}
+              {discord && (
+                <Button
+                  label="discord"
+                  simplify
+                  borderColor="white"
+                  onlyIcon
+                  onClick={() => redirectTo(discord)}
+                  icon={<Discord />}
+                />
+              )}
             </div>
           </div>
         </div>

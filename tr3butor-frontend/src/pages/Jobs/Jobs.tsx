@@ -1,25 +1,24 @@
-import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
-import React, { useEffect } from 'react'
-import { ScMain } from './styled'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
+import React, { useEffect } from 'react'
+import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
+import { randomItemFromArray } from '../../utilits/common'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { useActions } from '../../hooks/useActions'
-import { randomItemFromArray } from '../../utilits/common'
+import { ScMain } from '../Main/styled'
 
-export const Main = () => {
-  const { data } = useTypeSelector((state) => state.dao)
-  const { getDao } = useActions()
-
+export const Jobs = () => {
+  const { jobsData } = useTypeSelector((state) => state.jobs)
+  const { getJobs } = useActions()
   useEffect(() => {
-    getDao()
+    getJobs()
   }, [])
-  // TODO: MAKE HEADER TAB LIKE COMPONENT
   return (
     <ScMain>
-      <h2>dao Explorer</h2>
+      <h2>quests Explorer</h2>
       <h6>Explore unlimited opportunities in unstoppable organizations</h6>
-      {data && <DaoCardStack data={data} />}
+      <br />
+      <JobCardStack data={jobsData} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
     </ScMain>

@@ -134,8 +134,13 @@ export const ScJobHeader = styled.div<Props>`
       }
 
       .top {
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        max-width: 70%;
         @media (${device.mobileXXL}) {
           justify-content: left;
+          flex-wrap: wrap;
+          max-width: 100%;
         }
       }
 
@@ -143,6 +148,7 @@ export const ScJobHeader = styled.div<Props>`
         margin-right: 10px;
         height: 40px;
         width: 40px;
+        border-radius: 30px;
       }
 
       h3 {
@@ -159,9 +165,10 @@ export const ScJobHeader = styled.div<Props>`
       }
 
       .buttons {
-        margin-left: 100px;
-
+        width: 30%;
+        text-align: right;
         @media (${device.mobileXXL}) {
+          width: 100%;
           text-align: center;
           margin-top: 40px;
           margin-left: 0;

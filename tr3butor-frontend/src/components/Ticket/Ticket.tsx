@@ -3,15 +3,17 @@ import { ScTicket } from './styled'
 import { DecorBlocks } from '../DecorBlocks/DecorBlocks'
 import { Button } from '../Button/Button'
 
-interface ConnectTabProps {}
+interface ConnectTabProps {
+  scenario: 'first' | 'second' | 'third';
+}
 
-export const Ticket: React.FC<ConnectTabProps> = ({ ...props }) => {
+export const Ticket: React.FC<ConnectTabProps> = ({ scenario, ...props }) => {
   const redirect = (to: string) => window.location.replace(to)
   return (
     <ScTicket>
       <div className="border" />
       <div className="background" />
-      <DecorBlocks scenario="first" color="rgba(255, 255, 255, 0.2)" />
+      <DecorBlocks scenario={scenario} color="rgba(255, 255, 255, 0.2)" />
       <div className="ticket-content">
         <h6>
           let’s create new world together

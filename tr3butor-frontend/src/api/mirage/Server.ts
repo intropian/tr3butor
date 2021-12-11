@@ -19,7 +19,7 @@ export function makeServer () {
         }
       })
 
-      this.get('/pio/:id', (schema, request) => {
+      this.get('/dao/:id', (schema, request) => {
         return {
           data:
             schema

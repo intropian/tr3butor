@@ -5,6 +5,7 @@ import { ScJobCard } from './styled'
 
 import { Grant, Hackathon, Job } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
+import { cutSentences } from '../../utilits/common'
 
 interface JobCardProps {
   title: string;
@@ -14,6 +15,7 @@ interface JobCardProps {
   backgroundColor?: string;
   scenario?: 'first' | 'second' | 'third';
   type: 'Hackathon' | 'Job' | 'Grant';
+  link: string;
 }
 
 export const JobCard: React.FC<JobCardProps> = ({
@@ -24,6 +26,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   backgroundColor,
   scenario,
   type,
+  link,
   ...props
 }) => {
   const getIcon = (icon: string) => {
@@ -43,13 +46,13 @@ export const JobCard: React.FC<JobCardProps> = ({
       <DecorBlocks scenario={scenario} />
       <div className="card-header flex">
         <Suspense fallback={<Preloader height="60px" width="60px" />}>
-          <img alt={title} src={imageUrl} />
+          <img alt={type} src={imageUrl} />
         </Suspense>
         <span>{daoName}</span>
       </div>
       <div className="card-content">
         <h4>{title}</h4>
-        <p>{text}</p>
+        <p>{text && cutSentences(text, 100)}</p>
       </div>
       <div className="type flex">
         <i>{getIcon(type)}</i>
@@ -57,7 +60,7 @@ export const JobCard: React.FC<JobCardProps> = ({
           <span>{type}</span>
         </div>
       </div>
-      <Link to="/job">
+      <Link to={link}>
         <i>➞</i>
       </Link>
     </ScJobCard>

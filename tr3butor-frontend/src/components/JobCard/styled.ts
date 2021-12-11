@@ -18,6 +18,7 @@ export const ScJobCard = styled.div<Props>`
   }
 
   img {
+    border-radius: 30px;
     width: 60px;
     height: 60px;
   }
