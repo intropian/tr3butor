@@ -43,6 +43,8 @@ export class Dao {
   @Prop()
   link_reddit: string;
   @Prop()
+  link_discord: string;
+  @Prop()
   about_mission: string;
   @Prop()
   about_culture: string;
