@@ -19,7 +19,8 @@ export class DaoService {
     return this.daoModel.find(filtersToSearchQuery(filters)).exec();
   }
 
-  async findOne(id: string): Promise<Dao> {
+  async findOne(id: string, lean: boolean = false): Promise<Dao> {
+    if(lean) return this.daoModel.findOne({_id:id}).lean();
     return this.daoModel.findOne({_id:id}).exec();
   }
 

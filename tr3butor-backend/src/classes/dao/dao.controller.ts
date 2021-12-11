@@ -40,8 +40,8 @@ export class DaoController {
     description: 'List of DAO jobs',
     type: [DaoJob],
   })
-  findDaoJobs(@Param('id') id: string) {
-    return this.daoJobService.findDaoJobs(id);
+   findDaoJobs(@Param('id') id: string) {
+    return this.daoJobService.findDaoJobs(id, true);
   }
 
   @Get(':id')

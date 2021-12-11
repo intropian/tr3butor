@@ -7,6 +7,7 @@ import { DaoJob, DaoJobDocument } from './schemas/dao-job.schema';
 import { filtersToSearchQuery } from 'src/common/helpers/filtersToSearchQuery';
 import {  Types as MongooseTypes } from 'mongoose';
 
+const DaoExpansionFields = ['name', 'avatar', 'description', 'link_website', 'link_discord'];
 @Injectable()
 export class DaoJobService {
   constructor(@InjectModel(DaoJob.name) private daoJobModel: Model<DaoJobDocument>) {}
@@ -17,20 +18,24 @@ export class DaoJobService {
   }
 
   async findAll(filters: [string]): Promise<DaoJob[]> {
-    return this.daoJobModel.find(filtersToSearchQuery(filters)).exec();
+    return this.daoJobModel.find(filtersToSearchQuery(filters)).populate('dao', DaoExpansionFields).exec();
   }
-  async findDaoJobs(id: string): Promise<DaoJob[]> {
+  async findDaoJobs(id: string, lean: boolean = false): Promise<DaoJob[]> {
+    if(lean) return this.daoJobModel.find({dao: id}).populate('dao', DaoExpansionFields).exec();
     return this.daoJobModel.find({dao: id}).exec();
   }
-  async findOne(id: number): Promise<DaoJob> {
+  async findOne(id: string, lean: boolean = false): Promise<DaoJob> {
+    if(lean) {
+      return this.daoJobModel.findOne({_id:id}).populate('dao', DaoExpansionFields).exec();
+    }
     return this.daoJobModel.findOne({_id:id}).exec();
   }
 
-  async update(id: number, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
+  async update(id: string, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
     return this.daoJobModel.findByIdAndUpdate(id, updateDto).exec();
   }
 
-  async remove(id: number): Promise<UpdateWriteOpResult> {
+  async remove(id: string): Promise<UpdateWriteOpResult> {
     return this.daoJobModel.find({ _id:id }).remove().exec()
   }
 }

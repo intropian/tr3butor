@@ -35,6 +35,8 @@ export class CreateDaoDto {
     @ApiProperty()
     link_reddit: string;
     @ApiProperty()
+    link_discord: string;
+    @ApiProperty()
     about_mission: string;
     @ApiProperty()
     about_culture: string;
