@@ -5,6 +5,7 @@ export const ScInfoBlock = styled.div`
   padding-top: 35px;
   padding-bottom: 35px;
   align-items: stretch;
+  overflow: ellipsis;
 
   .content-block {
     padding-left: 120px;
@@ -24,5 +25,8 @@ export const ScInfoBlock = styled.div`
     font-size: 24px;
     line-height: 30px;
     padding-bottom: 40px;
+  }
+  li {
+    word-break: break-word;
   }
 `
