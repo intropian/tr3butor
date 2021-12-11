@@ -16,7 +16,9 @@
  if the link above doesn't work for you, please use https://www.tr3butor.selin.in.ua to access the site
  
  admin-panel: https://github.com/tr3butor/tr3butor/tree/main/tr3butor-admin
+ 
  back-end: https://github.com/tr3butor/tr3butor/tree/main/tr3butor-backend
+ 
  front-end: https://github.com/tr3butor/tr3butor/tree/main/tr3butor-backend
  
 ## Recorded video demo
