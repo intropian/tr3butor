@@ -17,13 +17,16 @@ export class DaoJobService {
   }
 
   async findAll(filters: [string]): Promise<DaoJob[]> {
-    return this.daoJobModel.find(filtersToSearchQuery(filters)).exec();
+    return this.daoJobModel.find(filtersToSearchQuery(filters)).populate('dao', ['name', 'avatar']).exec();
   }
   async findDaoJobs(id: string, lean: boolean = false): Promise<DaoJob[]> {
-    if(lean) return this.daoJobModel.find({dao: id}).lean();
+    if(lean) return this.daoJobModel.find({dao: id}).populate('dao', ['name', 'avatar']).lean();
     return this.daoJobModel.find({dao: id}).exec();
   }
-  async findOne(id: string): Promise<DaoJob> {
+  async findOne(id: string, lean: boolean = false): Promise<DaoJob> {
+    if(lean) {
+      return this.daoJobModel.findOne({_id:id}).populate('dao', ['name', 'avatar']).exec();
+    }
     return this.daoJobModel.findOne({_id:id}).exec();
   }
 

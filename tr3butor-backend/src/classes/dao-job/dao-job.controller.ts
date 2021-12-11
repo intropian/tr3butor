@@ -41,7 +41,7 @@ export class DaoJobController {
     type: DaoJob,
   })
   findOne(@Param('id') id: string) {
-    return this.daoJobService.findOne(id);
+    return this.daoJobService.findOne(id, true);
   }
 
   @Patch(':id')

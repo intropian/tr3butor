@@ -40,12 +40,8 @@ export class DaoController {
     description: 'List of DAO jobs',
     type: [DaoJob],
   })
-  async findDaoJobs(@Param('id') id: string) {
-
-    // yes, i know two awaits should be combined into Promise.all, we'll do on next iteration
-    const dao = await this.daoService.findOne(id, true);
-    const jobs = await this.daoJobService.findDaoJobs(id, true);
-    return jobs.map(job => ({...job, dao_name: dao.name, dao_avatar: dao.avatar}));
+   findDaoJobs(@Param('id') id: string) {
+    return this.daoJobService.findDaoJobs(id, true);
   }
 
   @Get(':id')
