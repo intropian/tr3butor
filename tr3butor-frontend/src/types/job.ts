@@ -28,6 +28,7 @@ export type JobParams = {
     description: string;
   };
   id: string;
+  created_at: string;
 };
 
 export interface DaoJobsState {

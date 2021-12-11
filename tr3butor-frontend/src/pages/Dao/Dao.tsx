@@ -40,6 +40,10 @@ export const Dao = () => {
           tags={certainDaoData.tags?.split(',')}
           title={certainDaoData.name}
           website={certainDaoData.link_website}
+          founded={certainDaoData.date_founded}
+          tvl={certainDaoData.metric_tvl}
+          mcap={certainDaoData.metric_mcap}
+          volume={certainDaoData.metric_volume}
         />
       )}
       {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}

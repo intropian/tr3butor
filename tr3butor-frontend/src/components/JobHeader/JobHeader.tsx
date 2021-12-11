@@ -81,7 +81,14 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
                 </div>
                 <div>
                   <span>added on</span>
-                  <p>{addedOn}</p>
+                  <p>
+                    {addedOn &&
+                      new Date(addedOn).toLocaleString('en', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: '2-digit'
+                      })}
+                  </p>
                 </div>
               </div>
             </div>

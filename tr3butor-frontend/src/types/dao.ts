@@ -5,14 +5,14 @@ export type DaoParams = {
   avatar: string;
   color: string;
   tags: string;
-  dateFounded: string;
   link_website: string;
   link_discord: string;
-  mcap: string;
-  volume: string;
-  tvl: string;
   contributors: [];
   followers: [];
+  metric_mcap: string;
+  metric_tvl: string;
+  metric_volume: string;
+  date_founded: string;
 };
 
 export interface DaoState {

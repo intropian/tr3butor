@@ -31,7 +31,7 @@ export const Job = () => {
           type="Job"
           jobText={jobData.title}
           salary={jobData.salary_range}
-          addedOn="01 dec 21"
+          addedOn={jobData.created_at}
           backgroundColor="#06CA54"
           description={jobData.dao.description}
           imageUrl={jobData.dao.avatar}
