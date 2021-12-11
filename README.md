@@ -50,11 +50,7 @@ The most frequently mentioned problem for DAOs is recruiting. There is a small s
 ### Submission links
 
 - Website: https://tr3butor.com/
-- Hackathon: 
-- GitHub repository :https://github.com/RainbowDAO/03-Hackathon-DAO-multi-signature-wallet
-- Smart contracts (GitHub): https://github.com/RainbowDAO/03-Hackathon-DAO-multi-signature-wallet/tree/main/contracts
-- Frontend code (GitHub):https://github.com/RainbowDAO/03-Hackathon-DAO-multi-signature-wallet/tree/main/Front-end%20file
-- PIcture (GitHub): https://github.com/RainbowDAO/03-Hackathon-DAO-multi-signature-wallet/tree/main/pic
+
 
 ### Recorded video demo
 
@@ -66,7 +62,6 @@ The most frequently mentioned problem for DAOs is recruiting. There is a small s
 As tr3butor is а next-level marketplace, our audience consists mainly DAOs and Contributors.
     - Given the diversity of talent in tr3butor's community, any DAO will find it valuable to participate in our active community. Whether you're here because of unmet hiring needs, governance processes or simply seeking the best practices, for hiring, managing payments and grant distributions, we believe you'll find what you're looking for.
 
-        
     The platform has a 3 tier system in place to help DAOs find the right talent, right away. 
         
        #The tr3butors talent force 
@@ -79,12 +74,12 @@ As tr3butor is а next-level marketplace, our audience consists mainly DAOs and 
        
       ##The First Generation 
         
-      Students and recent grads looking for work experience who will become the first generation of web3 professionals that never worked in web2/
+      Students and recent grads looking for work experience who will become the first generation of web3 professionals that never worked in web2. 
+      
 #Our Solution
 
-Find the right web3 talent, access invaluable resources, network and connect with members, set up bounties, create quests on your personal DAO explorer page  and so much more to come.  
-    #The community, the platform, the DAO.
-    
+
+#The community, the platform, the DAO.
 
 #Our very first (hackathon) features DAOs & their quests explorer page where users will find contributor application forms for DAOs. A simple yet effective authorisation process is in place to verify contributors and our Discord channe offers addditoin support in the form of onboarding, education and invaluable resources to connect with peeers and grow your skillet
     - In a few weeks we'll launch advanced contributors profiles aka on-chain CVs, custom feed of quests based on their followings and skills, and on-site blog platform to build the all-inclusive library of professional content from DAOs and contributors
