@@ -11,6 +11,13 @@ import { changeTo, randomItemFromArray, shuffle } from '../../utilits/common'
 import { useActions } from '../../hooks/useActions'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { JobParams } from '../../types/job'
+import { transformDataToBlockInfo } from 'utilits/transformDataToBlockInfo'
+
+const daoInfoFields = ['salary_range', 'how_to_apply', 'responsibilities', 'role_mission', 'hard_skills_requirements',
+  'soft_skills_requirements', 'culture_requirements', 'experience_requirements', 'education_requirements', 'work_conditions',
+  'benefits', 'red_alerts', 'additional_role_benefits', 'location', 'timezone']
+
+const mapName = (s:string) => s.replaceAll('_', ' ')
 
 export const Job = () => {
   const navigate = useNavigate()
@@ -24,6 +31,11 @@ export const Job = () => {
     params.id && getJob(params.id)
     getJobs()
   }, [])
+  let blocksInfo = null
+  if (jobData) {
+    const { dao, ...jobFields } = jobData
+    blocksInfo = transformDataToBlockInfo(daoInfoFields, { ...jobFields }, mapName)
+  }
   return (
     <ScJobContainer>
       {jobData && (
@@ -42,7 +54,7 @@ export const Job = () => {
           daoUrl={'/dao/' + jobData.dao.id}
         />
       )}
-      <InfoStack blocks={null} />
+      <InfoStack blocks={blocksInfo} />
       <TabHead
         title="related quests"
         label="all quests"

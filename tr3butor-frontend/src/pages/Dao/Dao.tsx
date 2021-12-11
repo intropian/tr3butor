@@ -13,7 +13,10 @@ import { useActions } from '../../hooks/useActions'
 import { DaoParams } from '../../types/dao'
 import { transformDataToBlockInfo } from '../../utilits/transformDataToBlockInfo'
 
-const daoInfoFields = ['about_mission', 'about_culture', 'about_history', 'about_core_team', 'about_whydao', 'about_benefits', 'timezones']
+const daoInfoFields = ['about_mission', 'about_culture', 'about_history', 'about_core_team', 'about_whydao',
+  'about_benefits', 'timezones']
+const mapName = (s:string) => s.includes('about_') ? s.substr(6) : s
+
 export const Dao = () => {
   const navigate = useNavigate()
   const params = useParams()
@@ -31,7 +34,7 @@ export const Dao = () => {
     getDao()
   }, [])
 
-  const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData) : null
+  const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData, mapName) : null
   return (
     <>
       {certainDaoData && !certainDaoLoading && (

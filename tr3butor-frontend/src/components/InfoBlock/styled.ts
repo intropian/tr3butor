@@ -27,7 +27,6 @@ export const ScInfoBlock = styled.div`
     padding-bottom: 40px;
   }
   li {
-    text-overflow: ellipsis;
-    overflow: hidden;
+    word-break: break-word;
   }
 `
