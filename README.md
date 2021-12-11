@@ -2,9 +2,6 @@
 
 *tr3butor* - the go to for everything top DAOs need to make sh*t happen. Meet talent, get things done and build the stage out for the next generation of the web. 
 
-## Team Name
-
-**tr3butor**
 
 ## Payment Address
 
