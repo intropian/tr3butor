@@ -32,7 +32,7 @@ https://www.loom.com/share/e417294644d24f689ab077546633fe64
 
 # Welcome to tr3butor
 
-tr3butor is the launchpad and go to platform for pioneering web3 talent to connect with the world's most exciting DAOs to shape the next stage in the evolution of the of the world wide web.
+tr3butor is the go to platform for pioneering web3 talent to connect with the world's most exciting DAOs to shape the next stage in the evolution of the of the world wide web.
 
 ## The Mission
 
@@ -58,12 +58,15 @@ The most frequently mentioned problem for DAOs is recruiting. There is a small s
     
 ## Our Solution - The community, the platform, the DAO.
 
-*Our very first (hackathon) features DAOs & their quests explorer page where users will find contributor application forms for DAOs. A simple yet effective authorisation process is in place to verify contributors and our Discord channe offers addditoin support in the form of onboarding, education and invaluable resources to connect with peeers and grow your skills*
+*Our very first (hackathon) features DAOs & their quests explorer page where users will find contributor application forms for DAOs. A simple yet effective authorisation process is in place, and our Discord channe offers addditoin support in the form of onboarding, education and invaluable resources to connect with peeers and grow your skills*
 
- In a few weeks we'll launch advanced contributor profiles, that will serve as on-chain CVs, custom feed of quests based on their followings and skills, and on-site blog platform to build the all-inclusive library of professional content from DAOs and contributors
-  Next stage of the project development will be adding in-app messaging and project-management tools & integrating advanced payment system for DAOs to have a single-interface solution for recurrent payments, bounties and tips. On top of that we can build (or integrate) many really exciting things, but for now we don't want to guess which of them our DAO and community will prioritise in roadmap and what else someone can bring on the table.
+ In a few weeks we'll launch advanced contributor profiles, that will serve as on-chain CVs, custom feed of quests based on their followings and skills, and on-site blog platform to build the all-inclusive library of professional content from DAOs and contributors.
+ 
+  Next stage of the project development will be adding in-app messaging and project-management tools & integrating advanced payment system for DAOs to have a single-interface solution for recurrent payments, bounties and tips. 
+  
+  On top of that we can build (or integrate) many really exciting things, but for now we don't want to guess which of them our DAO and community will prioritise in roadmap and what else someone can bring on the table.
         
-  ## What's next? 
+  ## Roadmap 
         - 223 Curated School – get your web3 knowledge and skills tested, discover possible development paths and learn-to-earn through courses, bootcamps and real tasks from DAOs
         - Advanced Treasury Management for DAOs – earn yield on your Contributors budget through automated conservative staking and farming strategies
         - Contributors Savings Management – Save & Earn more through automated staking and farming strategies
