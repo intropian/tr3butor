@@ -34,16 +34,19 @@ https://www.loom.com/share/e417294644d24f689ab077546633fe64
 
 tr3butor is the go to platform for pioneering web3 talent to connect with the world's most exciting DAOs to shape the next stage in the evolution of the of the world wide web.
 
+## Vision
+
+We want tr3butor to become much more than just a matchmaking platform.  We want this to feel like home. The virtual watering hole filled with insights, resources, connections, and people working on building the impossible, be the unstoppable and proudly usher in web3 together.
+
 ## The Mission
 
-As a team We want to ensure that every DAO has access to the best talent capable of taking their work to the next level. tr3butor is the stomping ground where the two come together to do epic work for the next era of the web. 
-
-Our aim is to become the go to platform for DAOs looking for knowledge, talent, and the support and backing of this community. 
+As a team we want to ensure that every DAO has access to the best talent capable of taking their work to the next level. tr3butor is the stomping ground where the two come together to do epic work for the next era of the web. 
 
 ### Goals:
 
-1. Educate & entertain both DAOs and tr3butors through content & events
-2. Make users stick through advanced earning and staking strategies for both parties
+1. Become the go to platform for DAOs looking for knowledge, talent, and the support and backing of this community. 
+2. Educate & entertain both DAOs and tr3butors through content & events
+3. Make users stick through advanced earning and staking strategies for both parties
 
 ## Problem
 
