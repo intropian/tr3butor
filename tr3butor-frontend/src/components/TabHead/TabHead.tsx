@@ -11,13 +11,13 @@ interface TabHeadProps {
 export const TabHead: React.FC<TabHeadProps> = ({
   title,
   label,
-  url, 
+  url,
   ...props
 }) => {
   return (
     <ScTabHead className="flex">
       <span>{title}</span>
-      <Button buttonType={'link'} label={label} alignRight primary width={280} url={url} />
+      <Button buttonType={'link'} simplify label={label} url={url} />
     </ScTabHead>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { DaoHeader } from '../../components/DaoHeader/DaoHeader'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
 import { InfoStack } from '../../components/InfoStack/InfoStack'
 import { TabHead } from '../../components/TabHead/TabHead'
@@ -15,10 +15,8 @@ import { transformDataToBlockInfo } from '../../utilits/transformDataToBlockInfo
 
 const daoInfoFields = ['about_mission', 'about_culture', 'about_history', 'about_core_team', 'about_whydao',
   'about_benefits', 'timezones']
-const mapName = (s:string) => s.includes('about_') ? s.substr(6) : s
 
 export const Dao = () => {
-  const navigate = useNavigate()
   const params = useParams()
   const { data } = useTypeSelector((state) => state.dao)
 
@@ -34,7 +32,7 @@ export const Dao = () => {
     getDao()
   }, [])
 
-  const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData, mapName) : null
+  const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData) : null
   return (
     <>
       {certainDaoData && !certainDaoLoading && (
@@ -56,14 +54,11 @@ export const Dao = () => {
       {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}
       <InfoStack blocks={blocksInfo}/>
       <TabHead
-        title="related dao’s"
-        label="dao’s catalog"
+        title="similar DAO"
+        label="see all"
         url="/"
-      /> 
-      {
-        // TODO: make real request
-      }
-      <DaoCardStack data={shuffle(data) as DaoParams[]} type={'horizontal'} />
+      />
+      <DaoCardStack data={(shuffle(data) as DaoParams[]).slice(0, 5)} type={'horizontal'} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
     </>

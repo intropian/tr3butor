@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { colors } from '../../utilits/Colors'
 
 export const ScInfoBlock = styled.div`
-  padding-top: 35px;
-  padding-bottom: 35px;
-  align-items: stretch;
-  overflow: ellipsis;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: inline-block;
+  width: 100%;
 
   .content-block {
     padding-left: 120px;
@@ -20,13 +20,14 @@ export const ScInfoBlock = styled.div`
     padding-bottom: 20px;
   }
 
-  p {
-    font-weight: 200;
-    font-size: 24px;
-    line-height: 30px;
-    padding-bottom: 40px;
+  p,li,a,span,strong {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 20px;
   }
   li {
     word-break: break-word;
+    margin-left: 30px;
   }
 `

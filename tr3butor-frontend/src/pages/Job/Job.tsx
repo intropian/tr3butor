@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { JobCardStack } from '../../components/JobCardStack/JobCardStack'
 import { ScJobContainer } from './styled'
 import { InfoStack } from '../../components/InfoStack/InfoStack'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { TabHead } from '../../components/TabHead/TabHead'
 import { JobHeader } from '../../components/JobHeader/JobHeader'
 import { randomItemFromArray, shuffle } from '../../utilits/common'
@@ -12,7 +12,7 @@ import { useActions } from '../../hooks/useActions'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { JobParams } from '../../types/job'
 import { transformDataToBlockInfo } from 'utilits/transformDataToBlockInfo'
-
+// TODO: REMOVE THIS TRASH! CHANGE LOGIC ON BACKEND
 const daoInfoFields = ['salary_range', 'how_to_apply', 'responsibilities', 'role_mission', 'hard_skills_requirements',
   'soft_skills_requirements', 'culture_requirements', 'experience_requirements', 'education_requirements', 'work_conditions',
   'benefits', 'red_alerts', 'additional_role_benefits', 'location', 'timezone']
@@ -20,7 +20,6 @@ const daoInfoFields = ['salary_range', 'how_to_apply', 'responsibilities', 'role
 const mapName = (s:string) => s.replaceAll('_', ' ')
 
 export const Job = () => {
-  const navigate = useNavigate()
 
   const params = useParams()
   const { getJob, getJobs } = useActions()
@@ -34,7 +33,7 @@ export const Job = () => {
   let blocksInfo = null
   if (jobData) {
     const { dao, ...jobFields } = jobData
-    blocksInfo = transformDataToBlockInfo(daoInfoFields, { ...jobFields }, mapName)
+    blocksInfo = transformDataToBlockInfo(daoInfoFields, { ...jobFields })
   }
   return (
     <ScJobContainer>
@@ -56,11 +55,11 @@ export const Job = () => {
       )}
       <InfoStack blocks={blocksInfo} />
       <TabHead
-        title="related quests"
-        label="all quests"
+        title="similar quests"
+        label="see all"
         url="quests"
       />
-      <JobCardStack data={shuffle(jobsData) as JobParams[]} />
+      <JobCardStack data={(shuffle(jobsData) as JobParams[]).slice(0, 5)} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
     </ScJobContainer>

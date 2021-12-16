@@ -117,4 +117,10 @@ export const ScButton = styled.button`
       }
     }
   }
+  &.tr3butor-button--secondary {
+    &:hover
+    {
+      border-color: ${colors.activeColor};
+    }
+  }
 `
