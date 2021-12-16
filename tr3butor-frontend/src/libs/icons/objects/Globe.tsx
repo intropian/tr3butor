@@ -21,7 +21,7 @@ const Globe = () => {
           <path fill="#fff" d="M0 0H20V20H0z" />
         </clipPath>
       </defs>
-    </svg>
+    </svg> 
   )
 }
 

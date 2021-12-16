@@ -4,8 +4,6 @@ import { Button } from '../Button/Button'
 import { Arrow, Discord, Globe, Grant, Hackathon, Job } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
 import { ScJobHeader } from './styled'
-import { changeTo, redirectTo } from '../../utilits/common'
-import { useNavigate } from 'react-router'
 
 interface JobHeaderProps {
   title: string;
@@ -50,7 +48,6 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
         return false
     }
   }
-  const navigate = useNavigate()
 
   return (
     <ScJobHeader color={backgroundColor}>
@@ -109,7 +106,8 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
                 simplify
                 borderColor="white"
                 primary={false}
-                onClick={() => changeTo(navigate, daoUrl)}
+                buttonType={'link'}
+                url={daoUrl}
               />
               {website && (
                 <Button
@@ -117,7 +115,8 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
                   simplify
                   borderColor="white"
                   onlyIcon
-                  onClick={() => redirectTo(website)}
+                  buttonType={'href'}
+                  url={website}
                   icon={<Globe />}
                 />
               )}
@@ -127,7 +126,8 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
                   simplify
                   borderColor="white"
                   onlyIcon
-                  onClick={() => redirectTo(discord)}
+                  buttonType={'href'}
+                  url={discord} 
                   icon={<Discord />}
                 />
               )}

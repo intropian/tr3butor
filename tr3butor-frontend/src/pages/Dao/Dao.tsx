@@ -7,7 +7,7 @@ import { TabHead } from '../../components/TabHead/TabHead'
 import { Ticket } from '../../components/Ticket/Ticket'
 import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
 import { DaoCardStack } from '../../components/DaoCardStack/DaoCardStack'
-import { changeTo, randomItemFromArray, shuffle } from '../../utilits/common'
+import { randomItemFromArray, shuffle } from '../../utilits/common'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { useActions } from '../../hooks/useActions'
 import { DaoParams } from '../../types/dao'
@@ -58,8 +58,8 @@ export const Dao = () => {
       <TabHead
         title="related dao’s"
         label="dao’s catalog"
-        onClick={() => changeTo(navigate, '/')}
-      />
+        url="/"
+      /> 
       {
         // TODO: make real request
       }

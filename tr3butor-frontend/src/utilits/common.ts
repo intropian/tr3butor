@@ -1,13 +1,3 @@
-import { NavigateFunction } from 'react-router'
-
-export const changeTo = (navigate: NavigateFunction, to: string) => {
-  navigate(to, { replace: true })
-}
-
-export const redirectTo = (to: string) => {
-  window.location.href = to
-}
-
 export function shuffle (array: Record<any, any>) {
   let currentIndex = array.length
   let randomIndex

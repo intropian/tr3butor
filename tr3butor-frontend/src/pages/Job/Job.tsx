@@ -7,7 +7,7 @@ import { InfoStack } from '../../components/InfoStack/InfoStack'
 import { useNavigate, useParams } from 'react-router'
 import { TabHead } from '../../components/TabHead/TabHead'
 import { JobHeader } from '../../components/JobHeader/JobHeader'
-import { changeTo, randomItemFromArray, shuffle } from '../../utilits/common'
+import { randomItemFromArray, shuffle } from '../../utilits/common'
 import { useActions } from '../../hooks/useActions'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { JobParams } from '../../types/job'
@@ -58,7 +58,7 @@ export const Job = () => {
       <TabHead
         title="related quests"
         label="all quests"
-        onClick={() => changeTo(navigate, '/quests')}
+        url="quests"
       />
       <JobCardStack data={shuffle(jobsData) as JobParams[]} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />

@@ -4,7 +4,6 @@ import { DecorBlocks } from '../DecorBlocks/DecorBlocks'
 import { Button } from '../Button/Button'
 import { Discord, Globe } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
-import { redirectTo } from '../../utilits/common'
 import { ContributorsModal } from '../Modal/ContributorsModal'
 
 interface DaoCardProps {
@@ -74,7 +73,8 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
                 simplify
                 borderColor="white"
                 onlyIcon
-                onClick={() => redirectTo(website)}
+                buttonType={'href'}
+                url={website}
                 icon={<Globe />}
               />
             )}
@@ -84,7 +84,8 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
                 simplify
                 borderColor="white"
                 onlyIcon
-                onClick={() => redirectTo(discord)}
+                buttonType={'href'}
+                url={discord}
                 icon={<Discord />}
               />
             )}
@@ -124,7 +125,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> 
       {showModal && <ContributorsModal onClose={() => setShowModal(false)} />}
     </ScDaoHeader>
   )

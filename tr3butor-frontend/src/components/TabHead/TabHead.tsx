@@ -5,19 +5,19 @@ import { Button } from '../Button/Button'
 interface TabHeadProps {
   title: string;
   label: string;
-  onClick: () => void;
+  url: string;
 }
 
 export const TabHead: React.FC<TabHeadProps> = ({
   title,
   label,
-  onClick,
+  url, 
   ...props
 }) => {
   return (
     <ScTabHead className="flex">
       <span>{title}</span>
-      <Button label={label} alignRight primary width={280} onClick={onClick} />
+      <Button buttonType={'link'} label={label} alignRight primary width={280} url={url} />
     </ScTabHead>
   )
 }

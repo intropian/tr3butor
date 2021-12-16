@@ -17,3 +17,4 @@ export function transformDataToBlockInfo (fields: string[], data: IndexableObjec
     } else return {}
   }).filter(block => block && block.title && block.content && block.content.length !== 0)
 }
+

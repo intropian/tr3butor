@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { ScButton } from './styled'
+import { Link } from 'react-router-dom'
 
 interface ButtonProps {
   primary?: boolean;
@@ -11,8 +12,10 @@ interface ButtonProps {
   label?: string;
   onClick?: () => void;
   width?: number;
-  icon?: any;
+  icon?: React.ReactElement;
   onlyIcon?: boolean;
+  buttonType?: 'simple' | 'href' | 'link';
+  url?:string;
 }
 
 export const Button = ({
@@ -26,6 +29,8 @@ export const Button = ({
   width,
   icon,
   onlyIcon,
+  buttonType = 'simple',
+  url = '',
   ...props
 }: ButtonProps) => {
   const mode = primary
@@ -49,8 +54,22 @@ export const Button = ({
       }}
       {...props}
     >
-      {icon}
-      {!onlyIcon && label}
+      <TypeWrapper buttonType={buttonType} url={url}>
+        {icon}
+        {!onlyIcon && label}
+      </TypeWrapper>
     </ScButton>
   )
+}
+
+
+const TypeWrapper: FC<{ buttonType: string; url: string; }> = ({buttonType,url, children}) => {
+  switch (buttonType){
+    case 'href':
+      return <>{children}<a target="_blank" href={url} rel="noreferrer" /></>
+    case 'link':
+      return <>{children}<Link to={url} /></>
+    default:
+      return <>{children}</>
+  }
 }

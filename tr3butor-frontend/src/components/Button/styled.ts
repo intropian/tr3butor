@@ -14,7 +14,14 @@ export const ScButton = styled.button`
   border-image-slice: 1;
   transition: all 0.5s;
   position: relative;
-
+  a
+  {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
   svg,
   polygon,
   path {
