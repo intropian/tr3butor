@@ -19,7 +19,8 @@ Primary.args = {
   primary: true,
   alignRight: true,
   label: 'connect wallet',
-  simplify: false
+  simplify: false,
+  buttonType: 'simple'
 }
 
 Primary.argTypes = {
@@ -35,7 +36,8 @@ WithIcon.args = {
   alignRight: true,
   label: 'connect wallet',
   simplify: false,
-  icon: <Fox />
+  icon: <Fox />,
+  buttonType: 'simple'
 }
 
 WithIcon.argTypes = {
@@ -51,7 +53,8 @@ OnlyIcon.args = {
   alignRight: false,
   simplify: true,
   icon: <Globe />,
-  onlyIcon: true
+  onlyIcon: true,
+  buttonType: 'simple'
 }
 
 OnlyIcon.argTypes = {
@@ -68,7 +71,8 @@ Simplify.args = {
   primary: true,
   alignRight: true,
   label: 'apply as a dao',
-  simplify: true
+  simplify: true,
+  buttonType: 'simple'
 }
 
 Simplify.argTypes = {
@@ -81,7 +85,8 @@ Simplify.argTypes = {
 export const Secondary = Template.bind({})
 Secondary.args = {
   label: 'mission',
-  simplify: false
+  simplify: false,
+  buttonType: 'simple'
 }
 
 Secondary.argTypes = {

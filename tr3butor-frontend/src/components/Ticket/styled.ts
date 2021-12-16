@@ -6,11 +6,6 @@ export const ScTicket = styled.div`
   position: relative;
   border-top-left-radius: 70px;
   margin-bottom: 90px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
   z-index: 1;
   background: ${colors.dark};
 
@@ -37,9 +32,9 @@ export const ScTicket = styled.div`
   }
 
   .ticket-content {
-    padding-left: 250px;
 
-    padding-top: 40px;
+
+    padding: 40px 60px;
 
     h6 {
       font-size: 24px;
@@ -51,9 +46,8 @@ export const ScTicket = styled.div`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-end;
-      padding-bottom: 30px;
       @media (${device.mobileXXL}) {
         display: block;
       }

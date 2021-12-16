@@ -24,6 +24,7 @@ export const Ticket: React.FC<ConnectTabProps> = ({ scenario, ...props }) => {
           <Button
             label="apply as a contributor"
             primary={true}
+            alignRight={true}
             simplify={true}
             onClick={() => redirect('https://tr3butor.com/tr3butor.html')}
           />
