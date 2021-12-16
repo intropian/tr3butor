@@ -6,6 +6,7 @@ import { randomItemFromArray } from '../../utilits/common'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { useActions } from '../../hooks/useActions'
 import { ScMain } from '../Main/styled'
+import { BlockHead } from '../../components/BlockHead/BlockHead'
 
 export const Jobs = () => {
   const { jobsData } = useTypeSelector((state) => state.jobs)
@@ -15,8 +16,7 @@ export const Jobs = () => {
   }, [])
   return (
     <ScMain>
-      <h2>quests Explorer</h2>
-      <h6>Explore unlimited opportunities in unstoppable organizations</h6>
+      <BlockHead title="quests Explorer" text="Explore unlimited opportunities in unstoppable organizations" />
       <br />
       <JobCardStack data={jobsData} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />

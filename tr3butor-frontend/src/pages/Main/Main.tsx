@@ -6,6 +6,7 @@ import { ConnectTab } from '../../components/ConnectTab/ConnectTab'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { useActions } from '../../hooks/useActions'
 import { randomItemFromArray } from '../../utilits/common'
+import { BlockHead } from '../../components/BlockHead/BlockHead'
 
 export const Main = () => {
   const { data } = useTypeSelector((state) => state.dao)
@@ -17,8 +18,7 @@ export const Main = () => {
   // TODO: MAKE HEADER TAB LIKE COMPONENT
   return (
     <ScMain>
-      <h2>dao Explorer</h2>
-      <h6>Explore unlimited opportunities in unstoppable organizations</h6>
+      <BlockHead title="dao Explorer" text="Explore unlimited opportunities in unstoppable organizations" />
       {data && <DaoCardStack data={data} />}
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
