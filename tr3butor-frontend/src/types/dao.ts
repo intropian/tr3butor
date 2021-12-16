@@ -21,6 +21,12 @@ export interface DaoState {
   error: null | string;
 }
 
+export interface DaoRelatedState {
+  relatedDaoData: DaoParams[];
+  relatedDaoLoading: boolean;
+  relatedDaoError: null | string;
+}
+
 export interface DaoCertainState {
   certainDaoData: DaoParams | null;
   certainDaoLoading: boolean;
@@ -31,6 +37,10 @@ export enum DaoActionTypes {
   GET_DAO = 'GET_DAO',
   GET_DAO_SUCCESS = 'GET_DAO_SUCCESS',
   GET_DAO_ERROR = 'GET_GATE_COUNT_ERROR',
+
+  GET_RELATED_DAO = 'GET_RELATED_DAO',
+  GET_RELATED_DAO_SUCCESS = 'GET_RELATED_DAO_SUCCESS',
+  GET_RELATED_DAO_ERROR = 'GET_RELATED_DAO_ERROR',
 
   GET_CERTAIN_DAO = 'GET_CERTAIN_DAO',
   GET_CERTAIN_DAO_SUCCESS = 'GET_CERTAIN_DAO_SUCCESS',
@@ -65,10 +75,27 @@ interface GetCertainDaoErrorAction {
   payload: string;
 }
 
+interface GetRelatedDaoAction {
+  type: DaoActionTypes.GET_RELATED_DAO;
+}
+
+interface GetRelatedDaoSuccessAction {
+  type: DaoActionTypes.GET_RELATED_DAO_SUCCESS;
+  payload: DaoParams[];
+}
+
+interface GetRelatedDaoErrorAction {
+  type: DaoActionTypes.GET_RELATED_DAO_ERROR;
+  payload: string;
+}
+
 export type daoAction =
   | GetDaoAction
   | GetDaoSuccessAction
   | GetDaoErrorAction
   | GetCertainDaoAction
   | GetCertainDaoSuccessAction
-  | GetCertainDaoErrorAction;
+  | GetCertainDaoErrorAction
+  | GetRelatedDaoAction
+  | GetRelatedDaoSuccessAction
+  | GetRelatedDaoErrorAction;

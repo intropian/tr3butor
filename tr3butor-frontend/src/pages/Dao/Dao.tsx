@@ -18,7 +18,7 @@ const daoInfoFields = ['about_mission', 'about_culture', 'about_history', 'about
 
 export const Dao = () => {
   const params = useParams()
-  const { data } = useTypeSelector((state) => state.dao)
+  const { relatedDaoData } = useTypeSelector((state) => state.relatedDao)
 
   const { certainDaoData, certainDaoLoading } = useTypeSelector(
     (state) => state.certainDao
@@ -26,10 +26,10 @@ export const Dao = () => {
   const { daoJobsData, daoJobsLoading } = useTypeSelector(
     (state) => state.daoJobs
   )
-  const { getCertainDao, getDaoJobs, getDao } = useActions()
+  const { getCertainDao, getDaoJobs, getRelatedDao } = useActions()
   useEffect(() => {
     params.id && getCertainDao(params.id) && getDaoJobs(params.id)
-    getDao()
+    getRelatedDao()
   }, [])
 
   const blocksInfo = certainDaoData != null ? transformDataToBlockInfo(daoInfoFields, certainDaoData) : null
@@ -58,7 +58,7 @@ export const Dao = () => {
         label="see all"
         url="/"
       />
-      <DaoCardStack data={(shuffle(data) as DaoParams[]).slice(0, 5)} type={'horizontal'} />
+      <DaoCardStack data={(shuffle(relatedDaoData) as DaoParams[]).slice(0, 8)} type={'horizontal'} />
       <Ticket scenario={randomItemFromArray(['first', 'second', 'third'])} />
       <ConnectTab />
     </>
