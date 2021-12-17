@@ -24,10 +24,15 @@ export const ScDaoHeader = styled.div<Props>`
   .container {
     position: relative;
     width: 920px;
-    min-height: 220px;
     margin: 0 auto;
     justify-content: flex-start;
+    align-items: flex-start;
     gap: 100px;
+    &.social
+    {
+      justify-content: space-between;
+      align-items: center;
+    }
     @media (${device.tablet}) {
       width: 100%;
     }
@@ -38,12 +43,12 @@ export const ScDaoHeader = styled.div<Props>`
       .top {
         flex-wrap: nowrap;
         align-items: flex-start;
-        @media (${device.mobileXXL}) {
+        @media (${device.tablet}) {
           flex-wrap: wrap;
         }
       }
 
-      @media (${device.mobileXXL}) {
+      @media (${device.tablet}) {
         width: 100%;
       }
       position: relative;
@@ -53,6 +58,13 @@ export const ScDaoHeader = styled.div<Props>`
         height: 120px;
         width: 120px;
         border-radius: 60px;
+        
+        @media (${device.tablet}) {
+          width: 60vw;
+          height: 60vw;
+          border-radius: 260px;
+          margin-bottom: 20px;
+        }
       }
 
       h3 {
@@ -79,41 +91,56 @@ export const ScDaoHeader = styled.div<Props>`
           margin-right: 20px;
         }
       }
+      
+    }
+    .buttons {
+      order: 2;
+      margin-left: 140px;
+      margin-top: 30px;
+      @media (${device.tablet}) {
+        order: 3;
+        margin: 0 auto;
+      }
+      button {
+        margin-right: 10px;
 
-      .buttons {
-        margin-top: 30px;
-
-        button {
-          margin-right: 10px;
-
-          &:hover {
-            border-color: ${colors.activeColor} !important;
-          }
+        &:hover {
+          border-color: ${colors.activeColor} !important;
         }
       }
     }
 
     .statistics {
+      order: 3;
+      @media (${device.tablet}) {
+        width: 100%;
+        order: 2;
+      }
       .tab {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
+        @media (${device.tablet}) {
+          justify-content: flex-end;
+        }
         gap: 46px;
 
         > div {
+          width: 88px;
           position: relative;
-
+          text-align: right;
           span {
             font-weight: 200;
             font-size: 18px;
+            text-align: right;
           }
 
           p {
             font-weight: 200;
             font-size: 24px;
-            text-align: center;
+            text-align: right;
           }
 
           img {

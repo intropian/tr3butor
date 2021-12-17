@@ -16,6 +16,29 @@ export const ScJobCard = styled.div<Props>`
   @media (${device.desktop}) {
     width: 240px;
   }
+  a
+  {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    &:hover+span
+    {
+      width: 70px;
+      height: 70px;
+
+      i {
+        background-color: ${(props) => props.color};
+        color: ${colors.dark};
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        padding-top: 20px;
+      }
+    }
+  }
 
   img {
     border-radius: 30px;
@@ -67,7 +90,7 @@ export const ScJobCard = styled.div<Props>`
     }
   }
 
-  a {
+  .button {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -93,20 +116,6 @@ export const ScJobCard = styled.div<Props>`
       top: 9px;
       right: 0;
       padding-top: 16px;
-    }
-
-    &:hover {
-      width: 70px;
-      height: 70px;
-
-      i {
-        background-color: ${(props) => props.color};
-        color: ${colors.dark};
-        width: 60px;
-        height: 60px;
-        font-size: 28px;
-        padding-top: 20px;
-      }
     }
   }
 

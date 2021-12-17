@@ -60,54 +60,8 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
               <span>{description}</span>
             </div>
           </div>
-          <div className="buttons">
-            <Button
-              label="add to favorites"
-              simplify
-              borderColor="white"
-              primary={false}
-            />
-            {website && (
-              <Button
-                label="website"
-                simplify
-                borderColor="white"
-                onlyIcon
-                buttonType={'href'}
-                url={website}
-                icon={<Globe />}
-              />
-            )}
-            {discord && (
-              <Button
-                label="discord"
-                simplify
-                borderColor="white"
-                onlyIcon
-                buttonType={'href'}
-                url={discord}
-                icon={<Discord />}
-              />
-            )}
-          </div>
         </div>
         <div className="statistics">
-          <div className="tab">
-            <div>
-              <span>contributors</span>
-              <p>
-                <i>0</i>
-              </p>
-            </div>
-            <div>
-              <span>mcap</span>
-              <p>{mcap}</p>
-            </div>
-            <div>
-              <span>volume</span>
-              <p>{volume}</p>
-            </div>
-          </div>
           <div className="tab">
             <div>
               <span>followers</span>
@@ -116,16 +70,60 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
               </p>
             </div>
             <div>
-              <span>founded</span>
-              <p>{founded}</p>
+              <span>mcap</span>
+              <p>{mcap|| 'no info'}</p>
             </div>
             <div>
-              <span>TVL</span>
-              <p>{tvl}</p>
+              <span>volume</span>
+              <p>{volume|| 'no info'}</p>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
+      <div className="container social flex">
+        <div className="buttons">
+          <Button
+            label="add to favorites"
+            simplify
+            borderColor="white"
+            primary={false}
+          />
+          {website && (
+            <Button
+              label="website"
+              simplify
+              borderColor="white"
+              onlyIcon
+              buttonType={'href'}
+              url={website}
+              icon={<Globe />}
+            />
+          )}
+          {discord && (
+            <Button
+              label="discord"
+              simplify
+              borderColor="white"
+              onlyIcon
+              buttonType={'href'}
+              url={discord}
+              icon={<Discord />}
+            />
+          )}
+        </div>
+        <div className="statistics">
+          <div className="tab">
+            <div>
+              <span>founded</span>
+              <p>{founded || 'no info'}</p>
+            </div>
+            <div>
+              <span>TVL</span>
+              <p>{tvl|| 'no info'}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       {showModal && <ContributorsModal onClose={() => setShowModal(false)} />}
     </ScDaoHeader>
   )

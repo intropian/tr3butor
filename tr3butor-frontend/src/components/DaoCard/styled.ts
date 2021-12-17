@@ -11,24 +11,28 @@ export const ScDaoCard = styled.div<Props>`
   width: 280px;
   height: 280px;
   padding: 30px 20px 20px 30px;
+  margin-bottom: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   background: ${(props) => props.color};
   border-top-left-radius: 70px;
+  a{
+    text-decoration: none;
+  }
   @media (${device.desktop}) {
     width: 240px;
     height: 240px;
   }
 
-  @media (${device.tablet}) {
+  @media (${device.tablet}) { 
     width: 43%;
     height: 43%;
   }
 
   @media (${device.mobileXXL}) {
-    width: 100%;
-    height: 70%;
+    width: 100vw;
+    height: 100vw;
   }
 
   .card-header {
@@ -40,6 +44,12 @@ export const ScDaoCard = styled.div<Props>`
     width: 100px;
     margin-bottom: 10px;
     border-radius: 60px;
+    @media (${device.mobileXXL}) {
+      width: 60vw;
+      height: 60vw;
+      margin-bottom: 0;
+      border-radius: 260px;
+    }
   }
 
   .card-content {
@@ -65,7 +75,7 @@ export const ScDaoCard = styled.div<Props>`
     }
   }
 
-  a {
+  span {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -92,8 +102,10 @@ export const ScDaoCard = styled.div<Props>`
       right: 0;
       padding-top: 16px;
     }
-
-    &:hover {
+    
+  }
+  &:hover {
+    span {
       width: 70px;
       height: 70px;
 

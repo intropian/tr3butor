@@ -8,7 +8,6 @@ interface ConnectTabProps {
 }
 
 export const Ticket: React.FC<ConnectTabProps> = ({ scenario, ...props }) => {
-  const redirect = (to: string) => window.location.replace(to)
   return (
     <ScTicket>
       <div className="border" />
@@ -26,14 +25,16 @@ export const Ticket: React.FC<ConnectTabProps> = ({ scenario, ...props }) => {
             primary={true}
             alignRight={true}
             simplify={true}
-            onClick={() => redirect('https://tr3butor.com/tr3butor.html')}
+            buttonType={'href'}
+            url={'https://tr3butor.com/tr3butor.html'}
           />
           <Button
             label="apply as a dao"
             primary={true}
             alignRight={true}
             simplify={true}
-            onClick={() => redirect('https://tr3butor.com/dao.html')}
+            buttonType={'href'}
+            url={'https://tr3butor.com/dao.html'}
           />
         </div>
       </div>

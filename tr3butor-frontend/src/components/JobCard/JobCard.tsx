@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
 import { DecorBlocks } from '../DecorBlocks/DecorBlocks'
-import { Link } from 'react-router-dom'
 import { ScJobCard } from './styled'
 
 import { Grant, Hackathon, Job } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
 import { cutSentences } from '../../utilits/common'
+import { Link } from 'react-router-dom'
 
 interface JobCardProps {
   title: string;
@@ -60,9 +60,10 @@ export const JobCard: React.FC<JobCardProps> = ({
           <span>{type}</span>
         </div>
       </div>
-      <Link to={link}>
+      <Link to={link}/>
+      <span className="button">
         <i>➞</i>
-      </Link>
+      </span>
     </ScJobCard>
   )
 }
