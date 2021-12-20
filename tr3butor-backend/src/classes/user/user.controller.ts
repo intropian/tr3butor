@@ -17,20 +17,20 @@ import {
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
+  @Post('auth-request')
   @ApiOperation({ summary: 'Auth Request' })
-  @ApiCreatedResponse({
+  @ApiOkResponse({
     description: 'requesting start of authentication from BE, getting nonce for further signing',
     type: AuthRequestDto,
   })
   authRequest(@Body() authRequestDto: AuthRequestDto): Promise<AuthResponseDto> {
     return this.userService.authRequest(authRequestDto);
   }
-  @Post()
+  @Post('auth-confirm')
   @ApiOperation({ summary: 'Auth Confirm' })
-  @ApiCreatedResponse({
+  @ApiOkResponse({
     description: 'FE provides signed nonce and BE validates it and authenticates user',
-    type: User,
+    type: AuthConfirmDto,
   })
   authConfirm(@Body() authConfirmDto: AuthConfirmDto): Promise<JWTDto> {
     return this.userService.authConfirm(authConfirmDto);

@@ -7,14 +7,14 @@ import { Model, UpdateWriteOpResult } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './schemas/user.schema';
 import { randomUUID } from 'crypto';
-import ethUtil  from 'ethereumjs-util';
+import * as ethUtil  from 'ethereumjs-util';
 import  {JwtService} from '@nestjs/jwt';
 
 function verifySignature(signed_nonce: string, nonce: string, public_addr: string): boolean {
-  const msgBuffer = ethUtil.toBuffer(nonce);
+  console.log('verifySignature', signed_nonce, nonce, public_addr);
+  const msgBuffer = Buffer.from(nonce);
   const msgHash = ethUtil.hashPersonalMessage(msgBuffer);
-  const signatureBuffer = ethUtil.toBuffer(signed_nonce);
-  const signatureParams = ethUtil.fromRpcSig(signatureBuffer.toString()); // https://gist.github.com/alexanderattar/29bef134239d5760b8d1fcc310b632be
+  const signatureParams = ethUtil.fromRpcSig(signed_nonce); // https://gist.github.com/alexanderattar/29bef134239d5760b8d1fcc310b632be
   const publicKey = ethUtil.ecrecover(
     msgHash,
     signatureParams.v,
@@ -75,11 +75,10 @@ export class UserService {
     if(public_addr != null && signed_nonce != null) {
       const user = await this.userModel.findOne({public_addr}).exec();
       if(user) {
-        const nonce = user.nonce;
-        if(verifySignature(signed_nonce, nonce, public_addr)) {
+        if(verifySignature(signed_nonce, user.nonce, public_addr)) {
           const accessToken = this.jwtService.sign({public_addr});
           return {
-              expiresIn: process.env.EXPIRESIN,
+              expiresIn: process.env.EXPIRES_IN,
               accessToken,
           };
         } else {
@@ -93,5 +92,3 @@ export class UserService {
     }
   }
 }
-
-// https://www.codemag.com/Article/2001081/Nest.js-Step-by-Step-Part-3-Users-and-Authentication
