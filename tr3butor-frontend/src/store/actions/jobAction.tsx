@@ -9,7 +9,7 @@ export const getDaoJobs = (id: string) => {
         type: JobActionTypes.GET_DAO_JOBS
       })
 
-      const response = await axios.get(`/api/dao/${id}/jobs`)
+      const response = await axios.get(`/dao/${id}/jobs`)
       dispatch({
         type: JobActionTypes.GET_DAO_JOBS_SUCCESS,
         payload: response.data
@@ -30,7 +30,7 @@ export const getJobs = () => {
         type: JobActionTypes.GET_JOBS
       })
 
-      const response = await axios.get('/api/dao-job')
+      const response = await axios.get('/dao-job')
       dispatch({
         type: JobActionTypes.GET_JOBS_SUCCESS,
         payload: response.data
@@ -51,7 +51,7 @@ export const getJob = (id: string) => {
         type: JobActionTypes.GET_JOB
       })
 
-      const response = await axios.get(`/api/dao-job/${id}`)
+      const response = await axios.get(`/dao-job/${id}`)
       dispatch({
         type: JobActionTypes.GET_JOB_SUCCESS,
         payload: response.data

@@ -9,7 +9,7 @@ export const getDao = () => {
         type: DaoActionTypes.GET_DAO
       })
 
-      const response = await axios.get('/api/dao')
+      const response = await axios.get('/dao')
       dispatch({
         type: DaoActionTypes.GET_DAO_SUCCESS,
         payload: response.data
@@ -30,7 +30,7 @@ export const getCertainDao = (id: string) => {
         type: DaoActionTypes.GET_CERTAIN_DAO
       })
 
-      const response = await axios.get(`/api/dao/${id}`)
+      const response = await axios.get(`/dao/${id}`)
       dispatch({
         type: DaoActionTypes.GET_CERTAIN_DAO_SUCCESS,
         payload: response.data
@@ -51,7 +51,7 @@ export const getRelatedDao = () => {
         type: DaoActionTypes.GET_RELATED_DAO
       })
 
-      const response = await axios.get('/api/dao')
+      const response = await axios.get('/dao')
       dispatch({
         type: DaoActionTypes.GET_RELATED_DAO_SUCCESS,
         payload: response.data
