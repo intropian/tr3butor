@@ -5,11 +5,10 @@ import {
   Edit,
   List,
   Datagrid,
-  Filter,
   required,
   email,
 } from 'react-admin';
-import {generateInputs, generateFields} from 'utils/generateInputs';
+import {generateInputs, generateFields, generateShowFields} from 'utils/generateInputs';
 import daoEntity from './daoEntity';
 
 export const DaoCreate = props => (
@@ -33,4 +32,12 @@ export const DaoList = props => (
             {generateFields(daoEntity)}
         </Datagrid>
     </List>
+);
+
+export const DaoShow = props => (
+    <Show title="View Dao" {...props}>
+        <SimpleShowLayout>
+            {generateShowFields(daoEntity)}
+        </SimpleShowLayout>
+    </Show>
 );

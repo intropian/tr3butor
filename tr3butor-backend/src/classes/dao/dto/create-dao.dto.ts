@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { TextBlockDto } from '../../common/dto/textblock.dto';
 
 export class CreateDaoDto {
     @ApiProperty()
@@ -19,7 +20,7 @@ export class CreateDaoDto {
     @ApiProperty()
     date_founded: string;
     @ApiProperty({ type: () => [String] })
-    contributors: [string];
+    contributors: string[];
     @ApiProperty()
     metric_mcap: string;
     @ApiProperty()
@@ -36,6 +37,10 @@ export class CreateDaoDto {
     link_reddit: string;
     @ApiProperty()
     link_discord: string;
+
+    @ApiProperty({ type: () => [TextBlockDto] })
+    text_blocks: [TextBlockDto]
+    /*
     @ApiProperty()
     about_mission: string;
     @ApiProperty()
@@ -50,4 +55,5 @@ export class CreateDaoDto {
     about_benefits: [string];
     @ApiProperty({ type: () => [String] })
     about_timezones: [string];
+    */
 }

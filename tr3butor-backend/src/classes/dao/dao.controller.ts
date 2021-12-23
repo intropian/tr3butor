@@ -21,7 +21,6 @@ import {
 export class DaoController {
   constructor(private readonly daoService: DaoService, private readonly daoJobService: DaoJobService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'Create Dao' })
   @ApiCreatedResponse({

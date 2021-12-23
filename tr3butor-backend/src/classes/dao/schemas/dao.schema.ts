@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 import { User } from '../../user/schemas/user.schema';
+import { TextBlock } from '../../common/schemas/textblock.schema';
 
 export type DaoDocument = Dao & Document;
 
@@ -27,7 +28,7 @@ export class Dao {
   @Prop()
   date_founded: string;
   @Prop()
-  contributors: [string];
+  contributors: string[];
   @Prop()
   metric_mcap: string;
   @Prop()
@@ -44,6 +45,10 @@ export class Dao {
   link_reddit: string;
   @Prop()
   link_discord: string;
+
+  @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'TextBlock' }])
+  text_blocks: TextBlock[]
+  /*
   @Prop()
   about_mission: string;
   @Prop()
@@ -58,6 +63,7 @@ export class Dao {
   about_benefits: [string];
   @Prop()
   about_timezones: [string];
+  */
 
 }
 

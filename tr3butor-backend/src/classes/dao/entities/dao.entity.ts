@@ -36,6 +36,10 @@ export class Dao {
     link_reddit: string;
     @ApiProperty()
     link_discord: string;
+
+    @ApiProperty()
+    text_blocks: [{title: string, content: string}]
+    /*
     @ApiProperty()
     about_mission: string;
     @ApiProperty()
@@ -50,4 +54,5 @@ export class Dao {
     about_benefits: [string];
     @ApiProperty({ type: () => [String] })
     about_timezones: [string];
+    */
 }

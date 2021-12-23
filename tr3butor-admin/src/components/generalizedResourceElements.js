@@ -7,9 +7,8 @@ import {
   Datagrid,
   Show,
   SimpleShowLayout,
-  TextField
 } from 'react-admin';
-import {generateInputs, generateFields} from 'utils/generateInputs';
+import {generateInputs, generateFields, generateShowFields} from 'utils/generateInputs';
 
 
 
@@ -39,7 +38,7 @@ export const ResourceListFn = entity => props => (
 export const ResourceShowFn = entity => props => (
     <Show title="View entity" {...props}>
         <SimpleShowLayout>
-            {generateFields(entity)}
+            {generateShowFields(entity)}
         </SimpleShowLayout>
     </Show>
 );
