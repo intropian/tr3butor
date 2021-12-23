@@ -30,6 +30,7 @@ export const confirmAuth = (public_addr: string, signed_nonce: string) => {
       })
 
       const response = await axios.post('/user/auth-confirm', {public_addr, signed_nonce})
+      localStorage.setItem('bearer_token', response.data.accessToken)
       dispatch({
         type: AuthActionTypes.CONFIRM_AUTH_SUCCESS,
         payload: response.data

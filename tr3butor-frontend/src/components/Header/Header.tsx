@@ -35,7 +35,7 @@ const LoginButton = () => {
   const { data: authConfirmData, loading: authСonfirmLoading, error: authConfirmError } = useTypeSelector(
     (state) => state.authConfirm
   )
-  const { startAuth, confirmAuth } = useActions()
+  const { startAuth, confirmAuth, getCurrentUser } = useActions()
 
   useEffect(() => {
     if(authStartData && library && account && !authConfirmData) {
@@ -45,9 +45,6 @@ const LoginButton = () => {
       })
     }
   }, [authStartData])
-  useEffect(() => {
-    console.log('authConfirmData', authConfirmData) // it is already in store but we should attach somehow to be used in axios calls
-  }, [authConfirmData])
 
   const handleConnectWallet = () => {
     activateBrowserWallet()
@@ -55,10 +52,12 @@ const LoginButton = () => {
   }
   const loginBackend = () => {
     if(account != null) {
-      console.log('startAuth')
       startAuth(account)
-      console.log('end startAuth')
     }
+  }
+  const showModalCallback = () => {
+    getCurrentUser()
+    setShowModal(true)
   }
 
   let button = null
@@ -84,7 +83,7 @@ const LoginButton = () => {
   } else {
     button = <Button
     label={'My Account'}
-    onClick={() => setShowModal(true)}
+    onClick={() => showModalCallback()}
     alignRight
     primary
     simplify
