@@ -1,10 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import type {AuthUser} from '../user/auth/jwt.strategy';
+
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Req, UseGuards } from '@nestjs/common';
+import { Request } from 'express';
 import { DaoService } from './dao.service';
 import { DaoJobService } from '../dao-job/dao-job.service';
 import { CreateDaoDto } from './dto/create-dao.dto';
 import { UpdateDaoDto } from './dto/update-dao.dto';
 import { Dao } from './entities/dao.entity';
-import {DaoJob} from '../dao-job/entities/dao-job.entity';
+import { DaoJob } from '../dao-job/entities/dao-job.entity';
+import { JwtAuthGuard } from '../user/auth/jwt-auth.guard';
 import {
   ApiOperation,
   ApiCreatedResponse,
@@ -17,6 +21,7 @@ import {
 export class DaoController {
   constructor(private readonly daoService: DaoService, private readonly daoJobService: DaoJobService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'Create Dao' })
   @ApiCreatedResponse({
@@ -25,6 +30,18 @@ export class DaoController {
   })
   create(@Body() createDaoDto: CreateDaoDto) {
     return this.daoService.create(createDaoDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('my-daos')
+  @ApiOkResponse({
+    description: ' Get list of DAOs I own ',
+    type: [Dao],
+  })
+  getMyDao(@Req() request: Request) {
+    console.log('getMyDao', request.user);
+    const authUser= <AuthUser>request.user;
+    return this.daoService.findAll([`id||=||${authUser.userId}`]);
   }
 
   @Get()

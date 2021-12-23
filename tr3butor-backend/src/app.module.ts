@@ -19,7 +19,20 @@ import { DaoHackathonModule } from './classes/dao-hackathon/dao-hackathon.module
 
 
 @Module({
-  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGODB_URL), UserModule, DaoModule, DaoQuestModule, DaoEventModule, BlogArticleModule, DaoTemplateModule, TalentModule, DaoJobModule, DaoBountyModule, DaoGrantModule, DaoHackathonModule],
+  imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
+    UserModule,
+    DaoModule,
+    DaoQuestModule,
+    DaoEventModule,
+    BlogArticleModule,
+    DaoTemplateModule,
+    TalentModule,
+    DaoJobModule,
+    DaoBountyModule,
+    DaoGrantModule,
+    DaoHackathonModule],
   controllers: [AppController],
   providers: [AppService],
 })

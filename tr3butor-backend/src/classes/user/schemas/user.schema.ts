@@ -21,7 +21,7 @@ export class User {
   twitter_handle: string;
   @Prop()
   eth_handle: string;
-  @Prop()
+  @Prop({required: true, index: true})
   public_addr: string;
 
   @Prop()
