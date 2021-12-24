@@ -13,7 +13,11 @@ export type DaoParams = {
   metric_tvl: string;
   metric_volume: string;
   date_founded: string;
+  text_blocks: TextBlock[];
 };
+type TextBlock = {
+  title: string, content: string
+}
 
 export interface DaoState {
   data: DaoParams[];
