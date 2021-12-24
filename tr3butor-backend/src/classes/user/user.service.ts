@@ -26,11 +26,11 @@ export class UserService {
     return userdata;
   }
 
-  async update(id: number, updateDto: UpdateUserDto): Promise<User> {
+  async update(id: string, updateDto: UpdateUserDto): Promise<User> {
     return this.userModel.findByIdAndUpdate(id, updateDto).exec();
   }
 
-  async remove(id: number): Promise<UpdateWriteOpResult> {
+  async remove(id: string): Promise<UpdateWriteOpResult> {
     return this.userModel.find({ _id:id }).remove().exec()
   }
 
