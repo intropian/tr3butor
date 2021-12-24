@@ -51,6 +51,7 @@ const LoginButton = () => {
 
   }
   const loginBackend = () => {
+    console.log(account)
     if(account != null) {
       startAuth(account)
     }

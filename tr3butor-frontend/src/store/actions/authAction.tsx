@@ -1,4 +1,4 @@
-import { authStartAction, authConfirmAction, AuthActionTypes } from '../../types/auth'
+import { AuthActionTypes, authConfirmAction, authStartAction } from '../../types/auth'
 import { Dispatch } from 'react'
 import axios from 'axios'
 
@@ -8,7 +8,7 @@ export const startAuth = (public_addr: string) => {
       dispatch({
         type: AuthActionTypes.START_AUTH
       })
-      const response = await axios.post('/user/auth-request', {public_addr})
+      const response = await axios.post('/api/user/auth-request', {public_addr})
       dispatch({
         type: AuthActionTypes.START_AUTH_SUCCESS,
         payload: response.data
@@ -29,7 +29,7 @@ export const confirmAuth = (public_addr: string, signed_nonce: string) => {
         type: AuthActionTypes.CONFIRM_AUTH
       })
 
-      const response = await axios.post('/user/auth-confirm', {public_addr, signed_nonce})
+      const response = await axios.post('/api/user/auth-confirm', {public_addr, signed_nonce})
       localStorage.setItem('bearer_token', response.data.accessToken)
       dispatch({
         type: AuthActionTypes.CONFIRM_AUTH_SUCCESS,

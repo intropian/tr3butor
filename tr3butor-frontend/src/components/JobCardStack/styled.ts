@@ -2,18 +2,6 @@ import styled from 'styled-components'
 import { colors } from '../../utilits/Colors'
 
 export const ScJobCardStack = styled.div`
-  padding-bottom: 120px;
-
-  .container {
-    columns: 3 280px;
-    column-gap: 40px;
-
-    > div {
-      display: inline-block;
-      margin-bottom: 30px;
-    }
-  }
-
   h2 {
     font-weight: 700;
     font-size: 70px;

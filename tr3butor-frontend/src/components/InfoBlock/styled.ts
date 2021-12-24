@@ -20,7 +20,7 @@ export const ScInfoBlock = styled.div`
     padding-bottom: 20px;
   }
 
-  p,li,a,span,strong {
+  p,li,a,span,strong, div {
     font-weight: 300;
     font-size: 16px;
     line-height: 20px;
