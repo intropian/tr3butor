@@ -6,7 +6,8 @@ import { JWTDto } from './dto/jwt.dto';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './schemas/user.schema';
-import { randomUUID } from 'crypto';
+//import { randomUUID } from 'crypto';
+import { v4 as randomUUID } from 'uuid';
 import * as ethUtil  from 'ethereumjs-util';
 import  { JwtService } from '@nestjs/jwt';
 
