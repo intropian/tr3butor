@@ -4,7 +4,6 @@ import { Router } from './Router'
 import { RecoilRoot } from 'recoil'
 import { Layout } from './Layout'
 
-// TODO: ADD TO EVERY COMPONENT THAT HAVE ASYNC PRELOADER TAB
 function App() {
   return (
     <RecoilRoot>

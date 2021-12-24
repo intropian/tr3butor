@@ -3,6 +3,7 @@ import { ScJobCardStack } from './styled'
 import { JobCard } from '../JobCard/JobCard'
 import { JobParams } from '../../types/job'
 import { randomItemFromArray } from '../../utilits/common'
+import { MasonryBlock } from '../MasonryBlock/MasonryBlock'
 
 interface DaoCardStackProps {
   data: JobParams[];
@@ -14,7 +15,12 @@ export const JobCardStack: React.FC<DaoCardStackProps> = ({
 }) => {
   return (
     <ScJobCardStack>
-      <div className="container">
+        <MasonryBlock
+          breakpoint={{
+            default: 3,
+            1000: 2,
+            700: 1
+          }}>
         {data?.map(({ title, description, dao, id }, key) => (
           <JobCard
             key={key}
@@ -28,7 +34,7 @@ export const JobCardStack: React.FC<DaoCardStackProps> = ({
             link={`/job/${id}`}
           />
         ))}
-      </div>
+        </MasonryBlock>
     </ScJobCardStack>
   )
 }

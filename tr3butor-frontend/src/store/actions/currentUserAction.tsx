@@ -9,7 +9,7 @@ export const getCurrentUser = () => {
         type: CurrentUserActionTypes.GET_CURRENT_USER
       })
       const bearerToken = localStorage.getItem('bearer_token')
-      const response = await axios.get('/user/me', {
+      const response = await axios.get('/api/user/me', {
         headers: { Authorization: `Bearer ${bearerToken}` }
       })
       dispatch({

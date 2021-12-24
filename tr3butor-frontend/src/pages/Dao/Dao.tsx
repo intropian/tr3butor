@@ -47,7 +47,7 @@ export const Dao = () => {
         />
       )}
       {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}
-      <InfoStack blocks={certainDaoData?.text_blocks ?? []}/>
+      {certainDaoData && <InfoStack blocks={certainDaoData.text_blocks}/> }
       <TabHead
         title="similar DAO"
         label="see all"
