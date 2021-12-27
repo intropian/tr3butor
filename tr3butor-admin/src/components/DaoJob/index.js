@@ -11,8 +11,7 @@ import {
   TextField,
   ReferenceField,
   SimpleShowLayout,
-  required,
-  useRecordContext
+  required
 } from 'react-admin';
 import {generateInputs, generateFields, generateShowFields} from 'utils/generateInputs';
 import {daoJobEntity} from './daoJobEntity';

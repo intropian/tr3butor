@@ -10,7 +10,6 @@ import {
   ChipField,
   RichTextField,
 } from 'react-admin';
-import { useRecordContext } from 'ra-core';
 import RichTextInput from 'ra-input-rich-text';
 
 
