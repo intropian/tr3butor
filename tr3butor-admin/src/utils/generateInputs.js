@@ -15,7 +15,6 @@ import RichTextInput from 'ra-input-rich-text';
 
 
 function SimpleArrayContent(props) {
-    console.log('SimpleArrayContent', props)
     const array = Object.values(props.data);
     if(array && Array.isArray(array)) {
         return <ul>

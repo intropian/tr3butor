@@ -30,6 +30,7 @@ export const daoEntity = {
 
   text_blocks: '[text_blocks]',
 
+  /*
   about_mission: 'string',
 
   about_culture: 'string',
@@ -43,4 +44,5 @@ export const daoEntity = {
   about_benefits: '[string]',
 
   about_timezones: '[string]',
+  */
 };

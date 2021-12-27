@@ -2,8 +2,13 @@ export const daoJobEntity = {
     title: 'string',
     description: 'string',
     salary_range: 'string',
-    how_to_apply: 'string',
     link_apply: 'string',
+    payment: 'string',
+
+    text_blocks: '[text_blocks]',
+
+    /*
+    how_to_apply: 'string',
     responsibilities: '[string]',
     role_mission: 'string',
     hard_skills_requirements: '[string]',
@@ -17,5 +22,5 @@ export const daoJobEntity = {
     additional_role_benefits: '[string]',
     location: 'string',
     timezone: 'string',
-    payment: 'string',
+    */
 };

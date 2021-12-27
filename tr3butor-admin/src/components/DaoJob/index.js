@@ -8,13 +8,22 @@ import {
   List,
   Datagrid,
   Show,
+  TextField,
+  ReferenceField,
   SimpleShowLayout,
   required,
+  useRecordContext
 } from 'react-admin';
-import {generateInputs, generateFields} from 'utils/generateInputs';
+import {generateInputs, generateFields, generateShowFields} from 'utils/generateInputs';
 import {daoJobEntity} from './daoJobEntity';
 
-
+/*
+const IncludedReferenceField = (props) => {
+    const { source } = props;
+    const record = useRecordContext(props);
+    const elemWithName = record[source];
+    return <span>{elemWithName.name ?? elemWithName.id}</span>;
+}*/
 
 export const DaoJobCreate = props => (
   <Create {...props} title="Create DaoJob">
@@ -40,6 +49,9 @@ export const DaoJobEdit = props => (
 export const DaoJobList = props => (
     <List {...props} title="List of Dao Jobs">
         <Datagrid rowClick="show">
+            <ReferenceField label="Dao" source="dao" reference="dao" link={false}>
+                <TextField source="name" />
+            </ReferenceField>
             {generateFields(daoJobEntity)}
         </Datagrid>
     </List>
@@ -48,8 +60,10 @@ export const DaoJobList = props => (
 export const DaoJobShow = props => (
     <Show title="View Dao Job" {...props}>
         <SimpleShowLayout>
-
-            {generateFields(daoJobEntity)}
+            <ReferenceField label="Dao" source="dao" reference="dao" link={false}>
+                <TextField source="name" />
+            </ReferenceField>
+            {generateShowFields(daoJobEntity)}
         </SimpleShowLayout>
     </Show>
 );
