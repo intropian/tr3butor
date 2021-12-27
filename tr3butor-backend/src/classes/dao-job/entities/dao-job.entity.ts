@@ -9,9 +9,25 @@ export class DaoJob {
     @ApiProperty()
     salary_range: string;
     @ApiProperty()
-    how_to_apply: string;
-    @ApiProperty()
     link_apply: string;
+
+    @ApiProperty()
+    payment: string;
+    @ApiProperty()
+    time_length: string; // may be enum
+
+    @ApiProperty()
+    dao: string; // name may change
+
+    @ApiProperty()
+    created_at: Date;
+
+    @ApiProperty()
+    text_blocks: [{title: string, content: string}]
+
+    /*
+    @ApiProperty()
+    how_to_apply: string;
     @ApiProperty({ type: () => [String] })
     responsibilities: [string];
     @ApiProperty()
@@ -38,14 +54,5 @@ export class DaoJob {
     location: string;
     @ApiProperty()
     timezone: string;
-    @ApiProperty()
-    payment: string;
-    @ApiProperty()
-    time_length: string; // may be enum
-
-    @ApiProperty()
-    dao: string; // name may change
-
-    @ApiProperty()
-    created_at: Date;
+    */
 }

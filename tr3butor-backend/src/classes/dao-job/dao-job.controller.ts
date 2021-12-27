@@ -32,7 +32,7 @@ export class DaoJobController {
     type: [DaoJob],
   })
   findAll(@Query() query) {
-    return this.daoJobService.findAll(query && query.filter);
+    return this.daoJobService.findAll(query && query.filter, query && query.populate);
   }
 
   @Get(':id')
@@ -40,8 +40,8 @@ export class DaoJobController {
     description: 'The found DaoJob',
     type: DaoJob,
   })
-  findOne(@Param('id') id: string) {
-    return this.daoJobService.findOne(id, true);
+  findOne(@Param('id') id: string, @Query() query) {
+    return this.daoJobService.findOne(id, query && query.populate);
   }
 
   @Patch(':id')

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { TextBlockDto } from '../../common/dto/textblock.dto';
 
 export class CreateDaoJobDto {
     @ApiProperty()
@@ -9,9 +10,18 @@ export class CreateDaoJobDto {
     @ApiProperty()
     salary_range: string;
     @ApiProperty()
-    how_to_apply: string;
-    @ApiProperty()
     link_apply: string;
+
+    @ApiProperty()
+    payment: string;
+    @ApiProperty()
+    dao: string;
+
+    @ApiProperty({ type: () => [TextBlockDto] })
+    text_blocks: [TextBlockDto]
+    /*
+    @ApiProperty()
+    how_to_apply: string;
     @ApiProperty({ type: () => [String] })
     responsibilities: [string];
     @ApiProperty()
@@ -38,9 +48,5 @@ export class CreateDaoJobDto {
     location: string;
     @ApiProperty()
     timezone: string;
-    @ApiProperty()
-    payment: string;
-
-    @ApiProperty()
-    dao: string;
+    */
 }

@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 import { Dao } from '../../dao/schemas/dao.schema';
+import { TextBlock } from '../../common/schemas/textblock.schema';
 
 export type DaoJobDocument = DaoJob & Document;
 
@@ -13,9 +14,24 @@ export class DaoJob {
   @Prop()
   salary_range: string;
   @Prop()
-  how_to_apply: string;
-  @Prop()
   link_apply: string;
+
+  @Prop()
+  payment: string;
+  @Prop()
+  time_length: string; // may be enum
+
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Dao' })
+  dao: Dao | MongooseSchema.Types.ObjectId | string;
+
+  @Prop()
+  created_at: Date;
+
+  @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'TextBlock' }])
+  text_blocks: TextBlock[]
+  /*
+  @Prop()
+  how_to_apply: string;
   @Prop()
   responsibilities: [string];
   @Prop()
@@ -42,16 +58,7 @@ export class DaoJob {
   location: string;
   @Prop()
   timezone: string;
-  @Prop()
-  payment: string;
-  @Prop()
-  time_length: string; // may be enum
-
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Dao' })
-  dao: Dao | MongooseSchema.Types.ObjectId | string;
-
-  @Prop()
-  created_at: Date;
+  */
 }
 
 export const DaoJobSchema = SchemaFactory.createForClass(DaoJob);

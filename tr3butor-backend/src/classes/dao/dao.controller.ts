@@ -38,7 +38,6 @@ export class DaoController {
     type: [Dao],
   })
   getMyDao(@Req() request: Request) {
-    console.log('getMyDao', request.user);
     const authUser= <AuthUser>request.user;
     return this.daoService.findAll([`id||=||${authUser.userId}`]);
   }

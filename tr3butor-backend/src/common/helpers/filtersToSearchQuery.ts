@@ -5,7 +5,8 @@ export function filtersToSearchQuery(filters: [string]): Object {
         if(filter.includes('||$in||')) {
             const parts = filter.split('||');
             if(parts[0] == 'id') parts[0] = '_id'; // mongo doesn't want to search by virtual field
-            searchQuery[parts[0]] = {$in:[parts[2]]};
+            const list = parts[2].split(',');
+            searchQuery[parts[0]] = {$in:list};
         } else if(filter.includes('||=||')){
             const parts = filter.split('||');
             if(parts[0] == 'id') parts[0] = '_id'; // mongo doesn't want to search by virtual field
