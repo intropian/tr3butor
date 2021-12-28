@@ -59,4 +59,5 @@ export class DaoService {
     }
     return dao.deleteOne();
   }
+
 }

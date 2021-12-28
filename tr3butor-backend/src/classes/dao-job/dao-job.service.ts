@@ -30,9 +30,9 @@ export class DaoJobService {
   }
 
   async findAll(filters: [string], populate: boolean = false): Promise<DaoJob[]> {
-    const query = this.daoJobModel.find(filtersToSearchQuery(filters));
+    const query = this.daoJobModel.find(filtersToSearchQuery(filters)).populate('text_blocks');
     if(populate) {
-      query.populate('dao', DaoExpansionFields).populate('text_blocks');
+      query.populate('dao', DaoExpansionFields);
     }
     return query.exec();
   }
@@ -41,10 +41,11 @@ export class DaoJobService {
     return this.daoJobModel.find({dao: id}).populate('text_blocks').exec();
   }
   async findOne(id: string, populate: boolean = false): Promise<DaoJob> {
+    const query = this.daoJobModel.findOne({_id:id}).populate('text_blocks');
     if(populate) {
-      return this.daoJobModel.findOne({_id:id}).populate('dao', DaoExpansionFields).populate('text_blocks').exec();
+      query.populate('dao', DaoExpansionFields);
     }
-    return this.daoJobModel.findOne({_id:id}).exec();
+    return query.exec();
   }
 
   async update(id: string, updateDto: UpdateDaoJobDto): Promise<DaoJob> {
