@@ -61,7 +61,6 @@ export function generateFields (entity)  {
             } else if (type === 'Date') {
                 return <DateField source={name} key={name}/>;
             } else if (type === '[text_blocks]') {
-                console.log('[text_blocks] name=', name);
                 return <ArrayField source={name} key={name}>
                     <SingleFieldList>
                         <ChipField source="title" />
