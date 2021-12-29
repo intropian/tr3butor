@@ -4,6 +4,7 @@ import { ScModal } from './styled'
 import { Button } from '../Button/Button'
 import { colors } from '../../utilits/Colors'
 import { useEthers } from '@usedapp/core'
+import { ClearAllStorage } from '../../utilits/ClearAllStorage'
 
 interface Props {
   onClose: () => void;
@@ -12,6 +13,7 @@ interface Props {
 export const AccountModal: React.FC<Props> = ({ onClose }) => {
   const { account, deactivate } = useEthers()
   const handleDeactivateAccount = () => {
+    ClearAllStorage()
     deactivate()
     onClose()
   }

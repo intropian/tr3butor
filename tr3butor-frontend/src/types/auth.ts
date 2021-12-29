@@ -23,7 +23,6 @@ interface StartAuthErrorAction {
 }
 
 
-
 interface ConfirmAuthAction {
   type: AuthActionTypes.CONFIRM_AUTH;
 }
@@ -39,13 +38,13 @@ interface ConfirmAuthErrorAction {
 }
 
 
-
 export type AuthResponseDTO = {
   nonce: string;
 };
 export type AuthConfirmationDTO = {
   accessToken: string;
   expiresIn: string;
+  account: string;
 };
 
 

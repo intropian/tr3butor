@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import { useEthers } from '@usedapp/core'
 import Jazzicon from '@metamask/jazzicon'
 import styled from '@emotion/styled'
 
@@ -13,9 +12,12 @@ const StyledIdenticon = styled.div`
   border-radius: 1.125rem;
 `
 
-export default function Identicon () {
+interface IdenticonProps {
+  account: string
+}
+
+export default function Identicon({ account }: IdenticonProps) {
   const ref = useRef<HTMLDivElement>()
-  const { account } = useEthers()
 
   useEffect(() => {
     if (account && ref.current) {
