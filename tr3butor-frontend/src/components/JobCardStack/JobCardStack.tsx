@@ -10,17 +10,17 @@ interface DaoCardStackProps {
 }
 
 export const JobCardStack: React.FC<DaoCardStackProps> = ({
-  data,
-  ...props
-}) => {
+                                                            data,
+                                                            ...props
+                                                          }) => {
   return (
     <ScJobCardStack>
-        <MasonryBlock
-          breakpoint={{
-            default: 3,
-            1000: 2,
-            700: 1
-          }}>
+      <MasonryBlock
+        breakpoint={{
+          default: 3,
+          1000: 2,
+          700: 1
+        }}>
         {data?.map(({ title, description, dao, id }, key) => (
           <JobCard
             key={key}
@@ -34,7 +34,7 @@ export const JobCardStack: React.FC<DaoCardStackProps> = ({
             link={`/job/${id}`}
           />
         ))}
-        </MasonryBlock>
+      </MasonryBlock>
     </ScJobCardStack>
   )
 }

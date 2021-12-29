@@ -7,12 +7,10 @@ import { Menu } from '../Menu/Menu'
 import { useEthers } from '@usedapp/core'
 import Identicon from '../../libs/metamask/Identicon'
 import { AccountModal } from '../Modal/AccountModal'
-import { useTypeSelector } from 'hooks/useTypeSelector'
 import { useActions } from 'hooks/useActions'
 
-interface HeaderProps {}
 
-export const Header = ({ ...props }: HeaderProps) => {
+export const Header = () => {
   return (
     <ScHeader>
       <div className="top-flex">
@@ -25,76 +23,41 @@ export const Header = ({ ...props }: HeaderProps) => {
 }
 
 const LoginButton = () => {
+
   const [showModal, setShowModal] = useState<boolean>(false)
 
-  const { activateBrowserWallet, account, library } = useEthers()
+  const { activateBrowserWallet, account } = useEthers()
 
-  const { data: authStartData, loading: authStartLoading, error: authStartError } = useTypeSelector(
-    (state) => state.authStart
-  )
-  const { data: authConfirmData, loading: authСonfirmLoading, error: authConfirmError } = useTypeSelector(
-    (state) => state.authConfirm
-  )
-  const { startAuth, confirmAuth, getCurrentUser } = useActions()
+  const { startAuth } = useActions()
+
 
   useEffect(() => {
-    if(authStartData && library && account && !authConfirmData) {
-      const signer = library.getSigner()
-      signer.signMessage(authStartData.nonce).then(signed => {
-        confirmAuth(account, signed)
-      })
-    }
-  }, [authStartData])
-
-  const handleConnectWallet = () => {
-    activateBrowserWallet()
-
-  }
-  const loginBackend = () => {
-    console.log(account)
-    if(account != null) {
+    if (account)
       startAuth(account)
-    }
-  }
-  const showModalCallback = () => {
-    getCurrentUser()
-    setShowModal(true)
-  }
+  }, [account])
 
-  let button = null
-  if(!account) {
-    button = <Button
-    label={'connect wallet'}
-    onClick={() => handleConnectWallet()}
-    alignRight
-    primary
-    simplify
-    icon={<Fox />}
-  />
-  } else if (!authConfirmData) {
-    button = <Button
-    label={'Login to backend'}
-    // onClick={() => setShowModal(true)}
-    onClick={() => loginBackend()}
-    alignRight
-    primary
-    simplify
-    icon={<Identicon />}
-  />
-  } else {
-    button = <Button
-    label={'My Account'}
-    onClick={() => showModalCallback()}
-    alignRight
-    primary
-    simplify
-    icon={<Identicon />}
-  />
+
+  const showModalCallback = () => {
+    setShowModal(true)
   }
 
   return (
     <div className="login-button">
-      {button}
+      {!localStorage.getItem('account') ? <Button
+        label={'connect wallet'}
+        onClick={() => activateBrowserWallet()}
+        alignRight
+        primary
+        simplify
+        icon={<Fox />}
+      /> : <Button
+        label={'My Account'}
+        onClick={() => showModalCallback()}
+        alignRight
+        primary
+        simplify
+        icon={<Identicon account={localStorage.getItem('account') || ''} />}
+      />}
       {showModal && <AccountModal onClose={() => setShowModal(false)} />}
     </div>
   )
