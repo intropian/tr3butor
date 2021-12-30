@@ -10,15 +10,15 @@ export const ScDaoHeader = styled.div<Props>`
   background: ${(props) => props.color};
   position: relative;
   padding-bottom: 40px;
-  margin: -150px calc(-100vw / 2 + 920px / 2) 40px;
+  margin: -152px calc(-100vw / 2 + 920px / 2) 40px;
   padding-top: 150px;
   @media (${device.tablet}) {
     padding-left: 20px;
     margin-left: -20px;
     margin-right: -40px;
     padding-right: 40px;
-    padding-top: 182px;
-    margin-top: -182px;
+    padding-top: 183px;
+    margin-top: -185px;
   }
 
   .container {
@@ -28,11 +28,12 @@ export const ScDaoHeader = styled.div<Props>`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 100px;
-    &.social
-    {
+
+    &.social {
       justify-content: space-between;
       align-items: center;
     }
+
     @media (${device.tablet}) {
       width: 100%;
     }
@@ -58,7 +59,7 @@ export const ScDaoHeader = styled.div<Props>`
         height: 120px;
         width: 120px;
         border-radius: 60px;
-        
+
         @media (${device.tablet}) {
           width: 60vw;
           height: 60vw;
@@ -91,8 +92,9 @@ export const ScDaoHeader = styled.div<Props>`
           margin-right: 20px;
         }
       }
-      
+
     }
+
     .buttons {
       order: 2;
       margin-left: 140px;
@@ -101,6 +103,7 @@ export const ScDaoHeader = styled.div<Props>`
         order: 3;
         margin: 0 auto;
       }
+
       button {
         margin-right: 10px;
 
@@ -116,6 +119,7 @@ export const ScDaoHeader = styled.div<Props>`
         width: 100%;
         order: 2;
       }
+
       .tab {
         display: flex;
         flex-direction: row;
@@ -131,6 +135,7 @@ export const ScDaoHeader = styled.div<Props>`
           width: 88px;
           position: relative;
           text-align: right;
+
           span {
             font-weight: 200;
             font-size: 18px;
