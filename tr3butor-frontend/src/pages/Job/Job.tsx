@@ -11,6 +11,7 @@ import { randomItemFromArray, shuffle } from '../../utilits/common'
 import { useActions } from '../../hooks/useActions'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import { JobParams } from '../../types/job'
+import { InfoStack } from '../../components/InfoStack/InfoStack'
 
 
 export const Job = () => {
@@ -43,7 +44,7 @@ export const Job = () => {
           daoUrl={'/dao/' + jobData.dao.id}
         />
       )}
-
+      {jobData && jobData.text_blocks && <InfoStack blocks={jobData.text_blocks} />}
       <TabHead
         title="similar quests"
         label="see all"

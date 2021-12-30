@@ -4,17 +4,7 @@ export type JobParams = {
   salary_range: string;
   how_to_apply: string;
   link_apply: string;
-  responsibilities: string;
-  role_mission: string;
-  hard_skills_requirements: string[];
-  soft_skills_requirements: string[];
-  culture_requirements: string[];
-  experience_requirements: string[];
-  education_requirements: string[];
-  work_conditions: string[];
-  benefits: string[];
-  red_alerts: string[];
-  additional_role_benefits: string[];
+  text_blocks: { content: string, title: string }[];
   location: string;
   timezone: string;
   payment: string;
