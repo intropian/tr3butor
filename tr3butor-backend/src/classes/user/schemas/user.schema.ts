@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Dao } from '../../dao/schemas/dao.schema';
 
 export type UserDocument = User & Document;
 
@@ -26,6 +27,10 @@ export class User {
 
   @Prop()
   nonce: string;
+
+  @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'DAO' }])
+  favourite_daos: Dao[] | string[]
+
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

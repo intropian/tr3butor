@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
+import { FavouritesService } from './favourites.service';
 import { UserController } from './user.controller';
 import { User, UserSchema } from './schemas/user.schema';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -21,7 +22,7 @@ import { PassportModule } from '@nestjs/passport';
     secret: process.env.SECRETKEY,
   })],
   controllers: [UserController],
-  providers: [UserService, AuthService, JwtStrategy],
+  providers: [UserService, AuthService, JwtStrategy, FavouritesService],
   exports: [AuthService],
 })
 export class UserModule {}
