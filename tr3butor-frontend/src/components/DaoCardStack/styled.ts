@@ -33,6 +33,8 @@ export const ScDaoCardStack = styled.div`
       justify-content: flex-start;
       overflow-x: auto;
       overflow-y: hidden;
+      padding-top: 1px;
+      padding-right: 40px;
 
       &::-webkit-scrollbar {
         display: none;
