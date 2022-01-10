@@ -5,8 +5,10 @@ import { Button } from '../Button/Button'
 import { Discord, Globe } from '../../libs/icons'
 import { Preloader } from '../Preloader/Preloader'
 import { ContributorsModal } from '../Modal/ContributorsModal'
+import { useActions } from '../../hooks/useActions'
 
 interface DaoCardProps {
+  daoId: string;
   title: string;
   tags?: string[];
   description?: string;
@@ -23,21 +25,27 @@ interface DaoCardProps {
 
 // TODO: ASAP BRICK ON COMPONENTS AND DIVIDE IT IN STORIES!
 export const DaoHeader: React.FC<DaoCardProps> = ({
-  title,
-  tags,
-  description,
-  imageUrl,
-  website,
-  discord,
-  backgroundColor,
-  scenario,
-  mcap,
-  tvl,
-  volume,
-  founded,
-  ...props
-}) => {
+                                                    daoId,
+                                                    title,
+                                                    tags,
+                                                    description,
+                                                    imageUrl,
+                                                    website,
+                                                    discord,
+                                                    backgroundColor,
+                                                    scenario,
+                                                    mcap,
+                                                    tvl,
+                                                    volume,
+                                                    founded,
+                                                    ...props
+                                                  }) => {
   const [showModal, setShowModal] = useState<boolean>(false)
+  const { addFavorites } = useActions()
+  const addToFavorite = (daoId: string) => {
+    const token = localStorage.getItem('bearer_token')
+    token && addFavorites(token, daoId)
+  }
 
   return (
     <ScDaoHeader color={backgroundColor}>
@@ -71,11 +79,11 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             </div>
             <div>
               <span>mcap</span>
-              <p>{mcap|| 'no info'}</p>
+              <p>{mcap || 'no info'}</p>
             </div>
             <div>
               <span>volume</span>
-              <p>{volume|| 'no info'}</p>
+              <p>{volume || 'no info'}</p>
             </div>
           </div>
         </div>
@@ -87,6 +95,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             simplify
             borderColor="white"
             primary={false}
+            onClick={() => addToFavorite(daoId)}
           />
           {website && (
             <Button
@@ -119,7 +128,7 @@ export const DaoHeader: React.FC<DaoCardProps> = ({
             </div>
             <div>
               <span>TVL</span>
-              <p>{tvl|| 'no info'}</p>
+              <p>{tvl || 'no info'}</p>
             </div>
           </div>
         </div>
