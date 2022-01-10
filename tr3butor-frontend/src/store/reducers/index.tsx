@@ -6,6 +6,7 @@ import { relatedDaoReducer } from './relatedDaoReducer'
 import { daoJobsReducer } from './daoJobsReducer'
 import { jobsReducer } from './jobsReducer'
 import { jobReducer } from './jobReducer'
+import { favoriteReducer } from './favoriteReducer'
 
 export const rootReducer = combineReducers({
   authStart: authStartReducer,
@@ -15,7 +16,8 @@ export const rootReducer = combineReducers({
   certainDao: certainDaoReducer,
   daoJobs: daoJobsReducer,
   jobs: jobsReducer,
-  job: jobReducer
+  job: jobReducer,
+  favorite: favoriteReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>;
