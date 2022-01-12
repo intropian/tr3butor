@@ -13,6 +13,7 @@ export const ScDaoCardStack = styled.div`
     gap: 30px;
     align-items: center;
     margin-top: 40px;
+    padding-top: 1px;
 
     & > div {
       margin-bottom: 40px;
@@ -33,6 +34,7 @@ export const ScDaoCardStack = styled.div`
       justify-content: flex-start;
       overflow-x: auto;
       overflow-y: hidden;
+      padding-right: 40px;
 
       &::-webkit-scrollbar {
         display: none;

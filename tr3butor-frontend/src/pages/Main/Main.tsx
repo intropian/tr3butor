@@ -15,7 +15,7 @@ export const Main = () => {
   useEffect(() => {
     getDao()
   }, [])
-  // TODO: MAKE HEADER TAB LIKE COMPONENT
+  
   return (
     <ScMain>
       <BlockHead title="dao Explorer" text="Explore unlimited opportunities in unstoppable organizations" />

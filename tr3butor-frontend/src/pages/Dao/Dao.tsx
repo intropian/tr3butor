@@ -32,6 +32,7 @@ export const Dao = () => {
     <>
       {certainDaoData && !certainDaoLoading && (
         <DaoHeader
+          daoId={certainDaoData.id}
           backgroundColor={certainDaoData.color}
           description={certainDaoData.description}
           discord={certainDaoData.link_discord}
@@ -47,7 +48,7 @@ export const Dao = () => {
         />
       )}
       {daoJobsData && !daoJobsLoading && <JobCardStack data={daoJobsData} />}
-      {certainDaoData && <InfoStack blocks={certainDaoData.text_blocks}/> }
+      {certainDaoData && <InfoStack blocks={certainDaoData.text_blocks} />}
       <TabHead
         title="similar DAO"
         label="see all"
