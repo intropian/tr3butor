@@ -28,7 +28,7 @@ export class User {
   @Prop()
   nonce: string;
 
-  @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'DAO' }])
+  @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'Dao' }])
   favourite_daos: Dao[] | string[]
 
 }
