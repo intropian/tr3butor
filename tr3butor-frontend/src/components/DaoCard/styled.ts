@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { colors } from '../../utilits/Colors'
 import { device } from '../../utilits/MediaQuery'
 
 interface Props {
@@ -17,15 +16,17 @@ export const ScDaoCard = styled.div<Props>`
   flex-direction: column;
   background: ${(props) => props.color};
   border-top-left-radius: 70px;
-  a{
+
+  a {
     text-decoration: none;
   }
+
   @media (${device.desktop}) {
     width: 240px;
     height: 240px;
   }
 
-  @media (${device.tablet}) { 
+  @media (${device.tablet}) {
     width: 43%;
     height: 43%;
   }
@@ -102,20 +103,18 @@ export const ScDaoCard = styled.div<Props>`
       right: 0;
       padding-top: 16px;
     }
-    
+
   }
+
   &:hover {
     span {
-      width: 70px;
-      height: 70px;
+      border-radius: 40px;
+      right: 5px;
+      bottom: 5px;
 
       i {
-        background-color: ${(props) => props.color};
-        color: ${colors.dark};
-        width: 60px;
-        height: 60px;
-        font-size: 28px;
-        padding-top: 20px;
+        top: 5px;
+        right: 5px;
       }
     }
   }
