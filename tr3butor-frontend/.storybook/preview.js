@@ -2,17 +2,19 @@ import { GlobalStyled } from "../src/components/GlobalStyled"
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import { DAppProvider } from "@usedapp/core"
+import { store } from "../src/store"
+import { Provider } from "react-redux"
 
 export const decorators = [
   (Story) => (
     <>
       <DAppProvider config={{ autoConnect: false }}>
-        <BrowserRouter>
-          <GlobalStyled />
-          <div className="content">
+        <Provider store={store}>
+          <BrowserRouter>
+            <GlobalStyled />
             <Story />
-          </div>
-        </BrowserRouter>
+          </BrowserRouter>
+        </Provider>
       </DAppProvider>
     </>
   )

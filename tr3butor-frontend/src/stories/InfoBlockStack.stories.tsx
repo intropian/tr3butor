@@ -12,4 +12,22 @@ const Template: ComponentStory<typeof InfoStack> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+
+Default.args = {
+  blocks: [{
+    title: 'mission',
+    content:
+      'Orakuru is aiming to  become a leading multi-chain oracle, and the first one fully decentralized, community owned and governed. '
+  },
+    {
+      title: 'mission',
+      content:
+        'Orakuru is aiming to  become a leading multi-chain oracle, and the first one fully decentralized, community owned and governed. '
+    },
+    {
+      title: 'mission',
+      content:
+        'Orakuru is aiming to  become a leading multi-chain oracle, and the first one fully decentralized, community owned and governed. '
+    }
+  ]
+}
