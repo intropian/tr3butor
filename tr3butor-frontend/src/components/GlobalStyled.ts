@@ -48,6 +48,7 @@ export const GlobalStyled = createGlobalStyle`
   }
 
   .cover {
+    background: ${colors.dark};
     overflow-x: hidden;
 
     .content {
