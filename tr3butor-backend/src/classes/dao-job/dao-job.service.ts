@@ -7,7 +7,7 @@ import { DaoJob, DaoJobDocument } from './schemas/dao-job.schema';
 import { TextBlock, TextBlockDocument } from '../common/schemas/textblock.schema';
 import { filtersToSearchQuery } from 'src/common/helpers/filtersToSearchQuery';
 
-const DaoExpansionFields = ['name', 'avatar', 'description', 'link_website', 'link_discord'];
+const DaoExpansionFields = ['name', 'avatar', 'description', 'link_website', 'link_discord', 'link_reddit', 'link_telegram', 'link_twitter'];
 @Injectable()
 export class DaoJobService {
   constructor(@InjectModel(DaoJob.name) private daoJobModel: Model<DaoJobDocument>, @InjectModel(TextBlock.name) private textBlockModel: Model<TextBlockDocument>) {}
