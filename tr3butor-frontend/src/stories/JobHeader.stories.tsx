@@ -18,7 +18,7 @@ export const Default = Template.bind({})
 Default.args = {
   title: 'Orakuru',
   description: 'Community Owned and Operated Oracle',
-  imageUrl: '/images/orakuru.png',
+  imageUrl: 'https://tr3butor.selin.in.ua/logos/dxdao.png',
   backgroundColor: '#D21752',
   scenario: 'first',
   website: 'http://localhost',

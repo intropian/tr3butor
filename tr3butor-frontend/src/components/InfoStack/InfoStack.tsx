@@ -6,7 +6,7 @@ interface InfoStackProps {
   blocks: Record<string, string>[]
 }
 
-export const InfoStack: React.FC<InfoStackProps> = ({ blocks, ...props }) => {
+export const InfoStack: React.FC<InfoStackProps> = ({ blocks = [] }) => {
   return (
     <ScInfoStack>
       {blocks.map((block, key) =>
