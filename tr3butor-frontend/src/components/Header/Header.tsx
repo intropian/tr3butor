@@ -43,7 +43,7 @@ const LoginButton = () => {
 
   return (
     <div className="login-button">
-      {!localStorage.getItem('account') ? <Button
+      {!account ? <Button
         label={'connect wallet'}
         onClick={() => activateBrowserWallet()}
         alignRight

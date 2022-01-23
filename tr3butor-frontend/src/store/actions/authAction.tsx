@@ -31,6 +31,7 @@ export const confirmAuth = (public_addr: string, signed_nonce: string) => {
 
       const response = await axios.post('/api/user/auth-confirm', { public_addr, signed_nonce })
       localStorage.setItem('bearer_token', response.data.accessToken)
+      localStorage.setItem('refresh_token', response.data.refreshToken)
       localStorage.setItem('expires_in', response.data.expiresIn)
       localStorage.setItem('account', public_addr)
       dispatch({
@@ -46,15 +47,20 @@ export const confirmAuth = (public_addr: string, signed_nonce: string) => {
   }
 }
 
-export const updateAuth = (accessToken: string, expiresIn: string, account: string) => {
+export const updateAuth = ( refresh_token: string, account: string) => {
   return async (dispatch: Dispatch<authConfirmAction>): Promise<void> => {
     try {
       dispatch({
         type: AuthActionTypes.CONFIRM_AUTH
       })
+
+      const response = await axios.post('/api/user/auth-refresh', { refresh_token })
+      localStorage.setItem('bearer_token', response.data.accessToken)
+      localStorage.setItem('expires_in', response.data.expiresIn)
+
       dispatch({
         type: AuthActionTypes.CONFIRM_AUTH_SUCCESS,
-        payload: { accessToken, expiresIn, account }
+        payload: { ...response.data, account }
       })
     } catch (e) {
       dispatch({

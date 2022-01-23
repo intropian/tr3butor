@@ -18,16 +18,18 @@ export function useSignUser() {
       const signer = library.getSigner()
       signer.signMessage(authStartData.nonce).then(signed => {
         confirmAuth(account, signed)
+        localStorage.removeItem('updated_auth') // just for demo
       })
     }
   }, [authStartData])
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('bearer_token')
-    const expiresIn = localStorage.getItem('expires_in')
-    const account = localStorage.getItem('account')
-    if (accessToken && expiresIn && account)
-      updateAuth(accessToken, expiresIn, account)
+    const refreshToken = localStorage.getItem('refresh_token')
+    const updated = localStorage.getItem('updated_auth') // just for demo
+    if (!updated && refreshToken && account) {
+      updateAuth(refreshToken, account)
+      localStorage.setItem('updated_auth', '1') // just for demo
+    }
 
-  }, [])
+  }, [authConfirmData, account])
 }
