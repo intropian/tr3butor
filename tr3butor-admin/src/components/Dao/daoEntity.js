@@ -1,7 +1,7 @@
 export const daoEntity = {
     name: 'string',
     eth_address: 'string',
-    description: 'richtext',
+    description: 'string', //string
     //admin_id: 'string',
 
   avatar: 'string',
@@ -27,6 +27,8 @@ export const daoEntity = {
   link_twitter: 'string',
 
   link_reddit: 'string',
+
+  link_discord: 'string',
 
   text_blocks: '[text_blocks]',
 
