@@ -27,6 +27,8 @@ export class User {
 
   @Prop()
   nonce: string;
+  @Prop()
+  refresh_token_uid: string;
 
   @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'Dao' }])
   favourite_daos: Dao[] | string[]

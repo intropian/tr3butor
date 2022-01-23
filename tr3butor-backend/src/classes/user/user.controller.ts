@@ -11,7 +11,7 @@ import { JWTDto } from './dto/jwt.dto';
 import { AddFavouritesDto, RemoveFavouritesDto} from './dto/favourites.dto';
 import { User } from './entities/user.entity';
 import { Dao } from '../dao/entities/dao.entity';
-import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { JwtAuthGuard, JwtRefreshAuthGuard } from './auth/jwt-auth.guard';
 import {
   ApiOperation,
   ApiOkResponse,
@@ -40,12 +40,23 @@ export class UserController {
   @ApiOperation({ summary: 'Auth Confirm' })
   @ApiOkResponse({
     description: 'FE provides signed nonce and BE validates it and authenticates user',
-    type: AuthConfirmDto,
+    type: JWTDto,
   })
   authConfirm(@Body() authConfirmDto: AuthConfirmDto): Promise<JWTDto> {
     return this.authService.authConfirm(authConfirmDto);
   }
 
+  @UseGuards(JwtRefreshAuthGuard)
+  @Post('auth-refresh')
+  @ApiOperation({ summary: 'Auth Refresh' })
+  @ApiOkResponse({
+    description: 'FE provides refresh token and BE returns new access token',
+    type: JWTDto
+  })
+  authRefresh(@Req() request: Request): Promise<JWTDto> {
+    const user_id = <string>request.user;
+    return this.authService.authRefresh(user_id);
+  }
   /*
   @Post()
   @ApiOperation({ summary: 'Create User' })

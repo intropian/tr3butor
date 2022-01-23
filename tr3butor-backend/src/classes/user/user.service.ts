@@ -22,7 +22,7 @@ export class UserService {
 
   async findOne(id: string): Promise<ReadUserDto> {
     const model = await this.userModel.findOne({_id:id}).exec();
-    const {password, nonce, ...userdata} = model.toJSON();
+    const {password, nonce, refresh_token_uid, ...userdata} = model.toJSON();
     return userdata;
   }
 

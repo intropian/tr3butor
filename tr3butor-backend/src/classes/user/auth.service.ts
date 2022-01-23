@@ -10,6 +10,7 @@ import { User, UserDocument } from './schemas/user.schema';
 import { v4 as randomUUID } from 'uuid';
 import * as ethUtil  from 'ethereumjs-util';
 import  { JwtService } from '@nestjs/jwt';
+import { JwtRefreshPayload } from './auth/jwt-refresh.strategy';
 
 function verifySignature(signed_nonce: string, nonce: string, public_addr: string): boolean {
   const msgBuffer = Buffer.from(nonce);
@@ -32,7 +33,6 @@ function verifySignature(signed_nonce: string, nonce: string, public_addr: strin
 @Injectable()
 export class AuthService {
   constructor(private readonly jwtService: JwtService, @InjectModel(User.name) private userModel: Model<UserDocument>) {}
-
 
   async authRequest(request: AuthRequestDto): Promise<AuthResponseDto> {
     const {public_addr} = request;
@@ -59,9 +59,18 @@ export class AuthService {
         if(verifySignature(signed_nonce, user.nonce, public_addr)) {
           const jwtPayload: JwtPayload = {public_addr, sub: user._id};
           const accessToken = this.jwtService.sign(jwtPayload);
+          const refresh_token_uid = randomUUID();
+          const jwtRefreshPayload: JwtRefreshPayload = {sub: user._id, refresh_token_uid};
+          const refreshToken = this.jwtService.sign(jwtRefreshPayload, {
+            secret: process.env.REFRESH_TOKEN_SECRET,
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN
+          });
+          user.refresh_token_uid = refresh_token_uid;
+          user.save();
           return {
               expiresIn: process.env.EXPIRES_IN,
               accessToken,
+              refreshToken
           };
         } else {
           throw new HttpException('Wrong auth', 401);
@@ -71,6 +80,19 @@ export class AuthService {
       }
     } else {
       throw new NotFoundException('empty "public_key" or "signed_nonce"');
+    }
+  }
+  async authRefresh(user_id: string): Promise<JWTDto>{
+    const user = await this.userModel.findById(user_id).exec();
+    if(user) {
+        const jwtPayload  = { sub: user_id, public_addr: user.public_addr};
+        const accessToken = this.jwtService.sign(jwtPayload);
+        return {
+          expiresIn: process.env.EXPIRES_IN,
+          accessToken,
+        }
+    } else {
+      throw new HttpException('Wrong user', 401);
     }
   }
 }
