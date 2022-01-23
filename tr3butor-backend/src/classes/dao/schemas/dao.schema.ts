@@ -48,25 +48,10 @@ export class Dao {
 
   @Prop([{ type: MongooseSchema.Types.ObjectId, ref: 'TextBlock' }])
   text_blocks: TextBlock[]
-  /*
+
   @Prop()
-  about_mission: string;
-  @Prop()
-  about_culture: string;
-  @Prop()
-  about_history: string;
-  @Prop()
-  about_core_team: [string];
-  @Prop()
-  about_whydao: string;
-  @Prop()
-  about_benefits: [string];
-  @Prop()
-  about_timezones: [string];
-  */
+  favourited_users_count: number;
 
 }
 
 export const DaoSchema = SchemaFactory.createForClass(Dao);
-
-// https://docs.nestjs.com/techniques/mongodb

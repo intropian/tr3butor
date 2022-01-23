@@ -60,4 +60,20 @@ export class DaoService {
     return dao.deleteOne();
   }
 
+  async increaseDaoFavourites(dao_ids: string[]) {
+    await Promise.all(dao_ids.map(async dao_id => {
+      const dao = await this.daoModel.findById(dao_id);
+      dao.favourited_users_count = dao.favourited_users_count > 0 ? dao.favourited_users_count+1 : 1;
+      await dao.save();
+    }));
+
+  }
+  async decreaseDaoFavourites(dao_ids: string[]) {
+    await Promise.all(dao_ids.map(async dao_id => {
+      const dao = await this.daoModel.findById(dao_id);
+      dao.favourited_users_count = dao.favourited_users_count > 0 ? dao.favourited_users_count-1 : 0;
+      await dao.save();
+    }));
+  }
+
 }

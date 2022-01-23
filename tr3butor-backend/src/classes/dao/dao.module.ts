@@ -14,5 +14,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 ],
   controllers: [DaoController],
   providers: [DaoService],
+  exports: [DaoService]
 })
 export class DaoModule {}

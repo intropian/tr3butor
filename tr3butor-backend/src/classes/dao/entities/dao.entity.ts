@@ -39,20 +39,7 @@ export class Dao {
 
     @ApiProperty()
     text_blocks: [{title: string, content: string}]
-    /*
+
     @ApiProperty()
-    about_mission: string;
-    @ApiProperty()
-    about_culture: string;
-    @ApiProperty()
-    about_history: string;
-    @ApiProperty({ type: () => [String] })
-    about_core_team: [string];
-    @ApiProperty()
-    about_whydao: string;
-    @ApiProperty({ type: () => [String] })
-    about_benefits: [string];
-    @ApiProperty({ type: () => [String] })
-    about_timezones: [string];
-    */
+    favourited_users_count: number;
 }
